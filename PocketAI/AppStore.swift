@@ -19,6 +19,7 @@ final class AppStore: ObservableObject {
     private var engine: any ChatEngine
     var canSwitchEngine: Bool { storageAvailable && generationTask == nil && unsavedReply == nil && !isSwitchingEngine }
     var engineName: String { engine.name }
+    var chatRoute: ChatRoute { ChatRouter.route(selectedModelID: data.selectedModelID) }
     var canGenerate: Bool { canSwitchEngine && engineStatus.isReady }
     private let repository: LocalRepository
 
@@ -35,10 +36,8 @@ final class AppStore: ObservableObject {
     static func live() -> AppStore {
         let root = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
         let store = AppStore(repository: LocalRepository(url: root.appendingPathComponent("PocketAI/state.json")), engine: AppleChatEngine())
-        if let id = store.data.selectedModelID {
-            store.engine = UnavailableChatEngine(name: "Saved local model", detail: "Select your saved model in Settings > Models to load it: \(id)")
-            store.refreshEngine()
-        }
+        store.engine = ChatRouter.placeholderEngine(for: store.chatRoute)
+        store.refreshEngine()
         return store
     }
     @discardableResult
