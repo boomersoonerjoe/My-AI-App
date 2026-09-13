@@ -3,6 +3,8 @@
 ## Purpose
 This file is the canonical hand-off record for AI-assisted development of PocketAI. Any model continuing development should read this file first, then inspect the latest commits, open pull requests, active feature branches, repository tree, and relevant source files. Update this file at every clean stopping point and before handing work to another model.
 
+This workflow is intentionally model-agnostic. No AI provider or model needs to be listed here in advance to participate. Any capable AI model with appropriate repository access should follow the same continuation, branch, validation, and hand-off rules in this file.
+
 ## Continuation Rule
 When the owner says **"continue build"**, the incoming model should automatically use this protocol:
 1. Read `PROGRESS.md` from the repository's default branch first.
@@ -95,7 +97,8 @@ Existing image-related source should remain intact unless a V1 chat change requi
 - No unapproved spending: paid services require explicit owner approval.
 - Preserve working code: do not restart PocketAI merely because another architecture is possible.
 - Source vs. verified: distinguish code that exists from behavior proven by builds/tests/devices.
-- Cross-model continuity: ChatGPT, Grok, or another model should continue the same project history rather than create model-specific forks unless a deliberate experiment requires one.
+- Cross-model continuity: any incoming AI model should continue the same project history rather than create provider- or model-specific forks unless a deliberate experiment requires one.
+- Model neutrality: the workflow applies equally to current and future AI assistants; naming a model in session history records who worked last but does not grant special status or create a separate workflow.
 
 ## Validation Status
 ### Present in source
@@ -151,7 +154,8 @@ Before another model takes over or a development session ends:
 - Created and refined the PocketAI-specific hand-off framework for cross-model continuity.
 - Replaced generic Node/JWT examples with PocketAI's actual architecture and V1 scope.
 - Recorded the single-user/private requirement and V1 through V4 roadmap.
-- Added an explicit `continue build` protocol so ChatGPT and Grok follow the same continuation path.
+- Added an explicit `continue build` protocol so any incoming AI model follows the same continuation path.
+- Made the hand-off workflow explicitly model-agnostic so future AI models do not need to be named in advance.
 - Made `PROGRESS.md` on `main` the canonical discovery point while keeping unfinished development on feature branches.
 - Recorded the distinction between source implementation and Mac/iPhone validation.
 - Added hand-off, small-commit, no-main-feature-development, and no-unverified-test rules.
