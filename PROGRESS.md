@@ -1,17 +1,29 @@
 # PocketAI - AI Hand-Off & Project Progress Tracker
 
 ## Purpose
-This file is the canonical hand-off record for AI-assisted development of PocketAI. Any model continuing development should read this file first, then inspect the current branch, latest commits, repository tree, and relevant source files. Update this file at every clean stopping point and before handing work to another model.
+This file is the canonical hand-off record for AI-assisted development of PocketAI. Any model continuing development should read this file first, then inspect the latest commits, open pull requests, active feature branches, repository tree, and relevant source files. Update this file at every clean stopping point and before handing work to another model.
+
+## Continuation Rule
+When the owner says **"continue build"**, the incoming model should automatically use this protocol:
+1. Read `PROGRESS.md` from the repository's default branch first.
+2. Inspect recent commits and any open PocketAI development pull requests/feature branches.
+3. Determine the active development branch from the newest coherent hand-off information; do not assume `main` is the work branch.
+4. Inspect the actual diff/source before trusting a summary from another model.
+5. Continue the recorded immediate next step unless it is blocked, unsafe, conflicts with newer code, or requires an owner decision.
+6. Never restart completed work merely because a different AI model is taking over.
+7. Before stopping, leave the repository in a coherent state and update this file so the next model can resume without asking the owner to reconstruct context.
+
+If `PROGRESS.md`, branch state, and actual code disagree, **the repository code and newest valid commits win**. Update this file to reconcile the discrepancy before continuing substantial work.
 
 ## Session Metadata
 - Last Active Model: ChatGPT (GPT-5.6 Sol)
 - Last Updated: 2026-09-13
-- Current Branch: `docs/ai-handoff`
-- Base Branch: `main`
-- Status: READY FOR REVIEW
+- Canonical Hand-Off Location: `PROGRESS.md` on the default branch (`main`)
+- Active Development Branch: determined per development session and recorded here when work begins
+- Status: READY FOR V1 DEVELOPMENT
 - Active Milestone: Version 1 - Chat
 
-The branch HEAD is the authoritative latest commit. Do not hard-code a commit hash here because updating this file creates another commit.
+The actual Git branch HEAD is the authoritative latest commit. Do not hard-code a commit hash here as the permanent source of truth because updating this file creates another commit.
 
 ## Product Purpose and Scope
 PocketAI is a private personal AI system for one owner only. It is not intended for App Store distribution, public users, or commercial SaaS operation.
@@ -58,20 +70,20 @@ Repository inspection shows substantial reusable V1 groundwork:
 IMPORTANT: implemented in source does not mean device-verified. Compilation, package resolution, XCTest execution, real-device behavior, offline execution, MLX performance, memory pressure, and thermal behavior still require Mac/iPhone validation unless later recorded as completed.
 
 ## Work Currently In Progress
-No V1 feature should be considered half-finished solely because of this hand-off setup. The immediate project-management task is establishing this hand-off record, then resuming V1 chat development from a clean development branch.
+No V1 feature should be considered half-finished solely because of this hand-off setup. The hand-off framework is established; the next substantive work is Version 1 chat development on an appropriate feature branch.
 
 Existing image-related source should remain intact unless a V1 chat change requires a compatibility fix.
 
 ## Immediate Next Steps for Incoming Model
 1. Read this entire file before modifying code.
-2. Inspect current branch HEAD, recent commits, repository tree, and `docs/ROADMAP.md`.
-3. Confirm the working branch. Never implement unfinished AI-generated work directly on `main`; use an appropriate feature branch.
+2. Inspect recent commits, open PRs/feature branches, repository tree, and `docs/ROADMAP.md`.
+3. Choose or resume the appropriate feature branch. Never implement unfinished AI-generated feature work directly on `main`.
 4. Establish the V1 chat baseline without redesigning working abstractions unnecessarily.
 5. Prioritize chat reliability, persistence/memory, local-model handling, switching/streaming/cancellation/error states, and a provider-neutral hybrid/remote boundary.
 6. Keep the existing `ChatEngine` seam unless concrete evidence shows it must change. Prefer adding a future remote engine/routing layer rather than coupling UI or persistence directly to a provider.
 7. Do not connect paid services or make spending decisions without explicit owner approval.
 8. When Mac/Xcode becomes necessary, stop at a clean commit and record the exact validation needed below.
-9. At the end of every work session, update this file with completed work, unfinished work, validation status, blockers, and precise next steps.
+9. At the end of every work session, update this file with completed work, unfinished work, validation status, blockers, active branch, and precise next steps.
 
 ## Architectural Decisions and Guardrails
 - Single-user/private: optimize for one owner, not a public product.
@@ -83,6 +95,7 @@ Existing image-related source should remain intact unless a V1 chat change requi
 - No unapproved spending: paid services require explicit owner approval.
 - Preserve working code: do not restart PocketAI merely because another architecture is possible.
 - Source vs. verified: distinguish code that exists from behavior proven by builds/tests/devices.
+- Cross-model continuity: ChatGPT, Grok, or another model should continue the same project history rather than create model-specific forks unless a deliberate experiment requires one.
 
 ## Validation Status
 ### Present in source
@@ -126,19 +139,21 @@ Before another model takes over or a development session ends:
 2. Inspect the diff for accidental or unrelated changes.
 3. Run every test/build actually available in the current environment. Never report a test as passed if it was not run.
 4. Make small, descriptive commits on the feature branch.
-5. Update this file with model/date, branch/status, exact work completed, materially changed files, validation actually performed and results, unfinished work, blockers, exact next steps, and any Mac/Xcode/device validation required.
-6. Commit the updated `PROGRESS.md`.
+5. Update this file with model/date, active branch/status, exact work completed, materially changed files, validation actually performed and results, unfinished work, blockers, exact next steps, and any Mac/Xcode/device validation required.
+6. Ensure the canonical `PROGRESS.md` on `main` is updated through the normal merge/PR workflow at an appropriate stopping point so the next model can discover it immediately.
 7. The incoming model reads this file and independently inspects the latest commit/diff before continuing.
 
 ### Recommended Incoming-Model Prompt
-> Continue PocketAI development from the current GitHub state. Read `PROGRESS.md` first, inspect the current branch and latest commits/diff, and follow the recorded immediate next steps. Preserve the documented architecture and V1 scope. Do not work directly on `main`, make spending decisions, or report builds/tests/device behavior as verified unless they were actually run.
+> Continue build. Read `PROGRESS.md` from `main` first, inspect the newest commits and active development PR/branch, then continue the recorded PocketAI V1 task from the actual repository state. Preserve the documented architecture and scope. Do not restart completed work, work directly on `main` for unfinished features, make spending decisions, or report builds/tests/device behavior as verified unless they were actually run.
 
 ## Session Log
 ### 2026-09-13 - ChatGPT (GPT-5.6 Sol)
-- Created PocketAI-specific hand-off framework based on the owner's requested ChatGPT/Grok collaboration workflow.
+- Created and refined the PocketAI-specific hand-off framework for cross-model continuity.
 - Replaced generic Node/JWT examples with PocketAI's actual architecture and V1 scope.
 - Recorded the single-user/private requirement and V1 through V4 roadmap.
+- Added an explicit `continue build` protocol so ChatGPT and Grok follow the same continuation path.
+- Made `PROGRESS.md` on `main` the canonical discovery point while keeping unfinished development on feature branches.
 - Recorded the distinction between source implementation and Mac/iPhone validation.
-- Added hand-off, small-commit, no-main-development, and no-unverified-test rules.
+- Added hand-off, small-commit, no-main-feature-development, and no-unverified-test rules.
 - Code behavior changed: No.
 - Builds/tests run: None; documentation-only change.
