@@ -37,11 +37,11 @@ If an incoming model suspects the previous session ended abruptly:
 Goal: after each meaningful checkpoint, the repository itself should contain enough information for a different AI model to resume safely even if the prior model disappeared without warning.
 
 ## Session Metadata
-- Last Active Model: ChatGPT (GPT-5.6 Sol)
+- Last Active Model: Grok (Grok 4.6)
 - Last Updated: 2026-09-13
 - Canonical Hand-Off Location: `PROGRESS.md` on the default branch (`main`)
-- Active Development Branch: determined per development session and recorded here when work begins
-- Status: READY FOR V1 DEVELOPMENT
+- Active Development Branch: `feature/v1-chat-baseline`
+- Status: V1 CHAT BASELINE IN PROGRESS
 - Active Milestone: Version 1 - Chat
 
 The actual Git branch HEAD is the authoritative latest commit. Do not hard-code a commit hash here as the permanent source of truth because updating this file creates another commit.
@@ -78,6 +78,7 @@ Design assumptions:
 Repository inspection shows substantial reusable V1 groundwork:
 - SwiftUI app/project structure with app and test targets.
 - `ChatEngine` abstraction for interchangeable chat backends.
+- `ChatRouter` for provider-neutral destination selection (Apple on-device vs downloaded local model; remote reserved and unused in V1).
 - `AppleChatEngine` using Apple's on-device language-model APIs.
 - `MLXChatEngine` for downloadable/local MLX models.
 - Streaming responses, cancellation, bounded context, and engine status handling.
@@ -85,26 +86,23 @@ Repository inspection shows substantial reusable V1 groundwork:
 - Downloadable model library with disk-space guard, staging, cancellation, pinned revisions, and integrity verification.
 - Local model switching/loading infrastructure.
 - Image storage groundwork exists, but image generation is not a V1 priority.
-- XCTest source exists for model-library and persistence behavior.
+- XCTest source exists for model-library, persistence, and ChatRouter behavior.
 - Build/test documentation and project-generation scripts are present.
 
 IMPORTANT: implemented in source does not mean device-verified. Compilation, package resolution, XCTest execution, real-device behavior, offline execution, MLX performance, memory pressure, and thermal behavior still require Mac/iPhone validation unless later recorded as completed.
 
 ## Work Currently In Progress
-No V1 feature should be considered half-finished solely because of this hand-off setup. The hand-off framework is established; the next substantive work is Version 1 chat development on an appropriate feature branch.
+V1 chat baseline is underway on `feature/v1-chat-baseline`. ChatRouter is the first routing-layer checkpoint. Do not implement a paid or public remote engine.
 
 Existing image-related source should remain intact unless a V1 chat change requires a compatibility fix.
 
 ## Immediate Next Steps for Incoming Model
-1. Read this entire file before modifying code.
-2. Inspect recent commits, open PRs/feature branches, repository tree, and `docs/ROADMAP.md`.
-3. Choose or resume the appropriate feature branch. Never implement unfinished AI-generated feature work directly on `main`.
-4. Establish the V1 chat baseline without redesigning working abstractions unnecessarily.
-5. Prioritize chat reliability, persistence/memory, local-model handling, switching/streaming/cancellation/error states, and a provider-neutral hybrid/remote boundary.
-6. Keep the existing `ChatEngine` seam unless concrete evidence shows it must change. Prefer adding a future remote engine/routing layer rather than coupling UI or persistence directly to a provider.
-7. Do not connect paid services or make spending decisions without explicit owner approval.
-8. When Mac/Xcode becomes necessary, stop at a clean commit and record the exact validation needed below.
-9. At the end of every work session, update this file with completed work, unfinished work, validation status, blockers, active branch, and precise next steps.
+1. Resume `feature/v1-chat-baseline` (do not start unfinished work on `main`).
+2. Run `python3 scripts/generate_project.py` so `ChatRouter.swift`, `ImageRepository.swift`, and `ChatRouterTests.swift` are in the Xcode target membership, then commit the regenerated `PocketAI.xcodeproj` if it is not already current on the branch.
+3. Keep `ChatEngine` and `ChatRouter` as the seams. Next code work: tighten engine-switch error states and persistence around model selection without adding voice/image generation.
+4. Do not connect paid services.
+5. When Mac/Xcode is available, stop at a clean commit and run the validation queue below.
+6. Update this file before stopping.
 
 ## Architectural Decisions and Guardrails
 - Single-user/private: optimize for one owner, not a public product.
@@ -124,6 +122,7 @@ Existing image-related source should remain intact unless a V1 chat change requi
 ### Present in source
 - Project structure
 - Chat abstractions
+- ChatRouter destination selection
 - Apple local chat adapter
 - MLX local chat adapter
 - Persistence/memory source
@@ -146,13 +145,14 @@ Mark PASS/FAIL only after actual execution:
 - Roadmap: `docs/ROADMAP.md`
 - Build/test notes: `docs/BUILD-AND-TEST.md`
 - Core chat: `PocketAI/ChatEngine.swift`
+- Routing: `PocketAI/ChatRouter.swift`
 - MLX chat: `PocketAI/MLXChatEngine.swift`
 - App state/orchestration: `PocketAI/AppStore.swift`
 - Persistence models: `PocketAI/Models.swift`
 - Local model management: `PocketAI/ModelLibrary.swift`
 
 ## Current Blockers / Owner Decisions Needed
-None recorded at this hand-off point.
+None recorded. Mac/Xcode remains required before any validation box can be marked PASS/FAIL.
 
 If a model encounters a decision that materially changes architecture, privacy, spending, scope, or requires owner hardware interaction, stop at a clean point and document the question rather than guessing.
 
@@ -172,6 +172,16 @@ If the session ends before these steps can be completed, the Abrupt-Stop / Usage
 > Continue build. Read `PROGRESS.md` from `main` first, inspect the newest commits and active development PR/branch, then continue the recorded PocketAI V1 task from the actual repository state. Preserve the documented architecture and scope. Do not restart completed work, work directly on `main` for unfinished features, make spending decisions, or report builds/tests/device behavior as verified unless they were actually run. If the prior session appears to have ended abruptly, reconstruct the latest safe checkpoint from GitHub before continuing.
 
 ## Session Log
+### 2026-09-13 - Grok (Grok 4.6)
+- Continued from `main` (`bc5e51be`). No open development PRs; all listed branches pointed at the same docs-only HEAD.
+- Created `feature/v1-chat-baseline` and started V1 chat baseline work there (not on `main`).
+- Added `PocketAI/ChatRouter.swift`: Apple on-device vs downloaded local model; remote reserved and unused in V1.
+- Wired `AppStore.live()` and Settings through the router.
+- Added `PocketAITests/ChatRouterTests.swift`.
+- Regenerated the Xcode project locally with `scripts/generate_project.py` so ChatRouter, ImageRepository, and ChatRouterTests get target membership. Commit that pbxproj on the next pass if it is still missing from the branch.
+- Code behavior changed: Yes (routing/startup engine selection and Settings route label).
+- Builds/tests run: None on Mac/Xcode. No Swift compiler in this environment. Do not treat XCTest as passed.
+
 ### 2026-09-13 - ChatGPT (GPT-5.6 Sol)
 - Created and refined the PocketAI-specific hand-off framework for cross-model continuity.
 - Replaced generic Node/JWT examples with PocketAI's actual architecture and V1 scope.
