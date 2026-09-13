@@ -17,6 +17,25 @@ When the owner says **"continue build"**, the incoming model should automaticall
 
 If `PROGRESS.md`, branch state, and actual code disagree, **the repository code and newest valid commits win**. Update this file to reconcile the discrepancy before continuing substantial work.
 
+## Abrupt-Stop / Usage-Limit Recovery
+Development must remain recoverable even if an AI session ends unexpectedly because of a usage limit, disconnect, tool failure, crash, or other interruption before a normal hand-off can be written.
+
+During any substantive development session:
+1. Create or resume the correct feature branch before making meaningful changes.
+2. Commit small, coherent milestones frequently enough that another model can recover from GitHub without depending on the prior chat session.
+3. Do not wait until the end of a long session to make the first useful commit.
+4. For longer sessions, refresh `PROGRESS.md` or another clearly referenced hand-off note at natural checkpoints when practical, rather than relying only on a final end-of-session update.
+5. Treat uncommitted or unpushed workspace changes as non-transferable. Another AI may not be able to see them, so important progress should reach GitHub promptly after it becomes coherent.
+
+If an incoming model suspects the previous session ended abruptly:
+1. Do not assume `PROGRESS.md` is fully current.
+2. Inspect the newest commits, active feature branches, open pull requests, and diffs first.
+3. Prefer the newest coherent repository state over an older hand-off summary.
+4. Identify the last completed checkpoint and continue from there; do not reconstruct or redo work that is already present in GitHub.
+5. If partial or contradictory changes make the intended next step unclear, stop and ask the owner rather than guessing.
+
+Goal: after each meaningful checkpoint, the repository itself should contain enough information for a different AI model to resume safely even if the prior model disappeared without warning.
+
 ## Session Metadata
 - Last Active Model: ChatGPT (GPT-5.6 Sol)
 - Last Updated: 2026-09-13
@@ -99,6 +118,7 @@ Existing image-related source should remain intact unless a V1 chat change requi
 - Source vs. verified: distinguish code that exists from behavior proven by builds/tests/devices.
 - Cross-model continuity: any incoming AI model should continue the same project history rather than create provider- or model-specific forks unless a deliberate experiment requires one.
 - Model neutrality: the workflow applies equally to current and future AI assistants; naming a model in session history records who worked last but does not grant special status or create a separate workflow.
+- Crash recoverability: meaningful progress should be committed to GitHub in small coherent checkpoints so an abrupt session end does not strand important work in one model's temporary workspace.
 
 ## Validation Status
 ### Present in source
@@ -146,8 +166,10 @@ Before another model takes over or a development session ends:
 6. Ensure the canonical `PROGRESS.md` on `main` is updated through the normal merge/PR workflow at an appropriate stopping point so the next model can discover it immediately.
 7. The incoming model reads this file and independently inspects the latest commit/diff before continuing.
 
+If the session ends before these steps can be completed, the Abrupt-Stop / Usage-Limit Recovery rules above take precedence for the next model.
+
 ### Recommended Incoming-Model Prompt
-> Continue build. Read `PROGRESS.md` from `main` first, inspect the newest commits and active development PR/branch, then continue the recorded PocketAI V1 task from the actual repository state. Preserve the documented architecture and scope. Do not restart completed work, work directly on `main` for unfinished features, make spending decisions, or report builds/tests/device behavior as verified unless they were actually run.
+> Continue build. Read `PROGRESS.md` from `main` first, inspect the newest commits and active development PR/branch, then continue the recorded PocketAI V1 task from the actual repository state. Preserve the documented architecture and scope. Do not restart completed work, work directly on `main` for unfinished features, make spending decisions, or report builds/tests/device behavior as verified unless they were actually run. If the prior session appears to have ended abruptly, reconstruct the latest safe checkpoint from GitHub before continuing.
 
 ## Session Log
 ### 2026-09-13 - ChatGPT (GPT-5.6 Sol)
@@ -156,6 +178,7 @@ Before another model takes over or a development session ends:
 - Recorded the single-user/private requirement and V1 through V4 roadmap.
 - Added an explicit `continue build` protocol so any incoming AI model follows the same continuation path.
 - Made the hand-off workflow explicitly model-agnostic so future AI models do not need to be named in advance.
+- Added abrupt-stop / usage-limit recovery rules so another model can recover from the latest coherent GitHub checkpoint if a session ends unexpectedly.
 - Made `PROGRESS.md` on `main` the canonical discovery point while keeping unfinished development on feature branches.
 - Recorded the distinction between source implementation and Mac/iPhone validation.
 - Added hand-off, small-commit, no-main-feature-development, and no-unverified-test rules.
