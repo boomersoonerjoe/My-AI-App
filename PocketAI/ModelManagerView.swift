@@ -44,7 +44,6 @@ struct ModelManagerView: View {
                     } else {
                         Button("Download \(model.sizeLabel)") { library.startDownload(model) }
                             .disabled(library.isBusy || store.isSwitchingEngine)
-                        // Also permits cleanup of a failed/corrupted installation.
                         Button("Remove incomplete files", role: .destructive) { pendingDelete = model; showDelete = true }
                             .disabled(library.isBusy || !store.canSwitchEngine || store.data.selectedModelID == model.id)
                     }
@@ -56,7 +55,10 @@ struct ModelManagerView: View {
         .onAppear { library.refresh(); store.refreshEngine() }
         .alert("Delete model files?", isPresented: $showDelete, presenting: pendingDelete, actions: { model in
             Button("Delete", role: .destructive) {
-                do { try library.delete(model) } catch { store.error = error.localizedDescription }
+                do {
+                    try library.delete(model)
+                    store.forgetDeletedModel(model)
+                } catch { store.error = error.localizedDescription }
             }
             Button("Cancel", role: .cancel) {}
         }, message: { model in

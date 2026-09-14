@@ -19,6 +19,7 @@ final class AppStore: ObservableObject {
     private var engine: any ChatEngine
     var canSwitchEngine: Bool { storageAvailable && generationTask == nil && unsavedReply == nil && !isSwitchingEngine }
     var engineName: String { engine.name }
+    var chatRoute: ChatRoute { ChatRouter.route(selectedModelID: data.selectedModelID) }
     var canGenerate: Bool { canSwitchEngine && engineStatus.isReady }
     private let repository: LocalRepository
 
@@ -35,11 +36,12 @@ final class AppStore: ObservableObject {
     static func live() -> AppStore {
         let root = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
         let store = AppStore(repository: LocalRepository(url: root.appendingPathComponent("PocketAI/state.json")), engine: AppleChatEngine())
-        if let id = store.data.selectedModelID {
-            store.engine = UnavailableChatEngine(name: "Saved local model", detail: "Select your saved model in Settings > Models to load it: \(id)")
-            store.refreshEngine()
-        }
+        store.applyRouteEngine()
         return store
+    }
+    private func applyRouteEngine() {
+        engine = ChatRouter.placeholderEngine(for: chatRoute)
+        refreshEngine()
     }
     @discardableResult
     private func change(_ edit: (inout AppData) -> Void) -> Bool {
@@ -108,13 +110,25 @@ final class AppStore: ObservableObject {
                 }
                 self.engine = loaded
             } catch {
-                let detail = Task.isCancelled ? "Model loading cancelled. Choose a model to continue." : "Model could not load: \(error.localizedDescription)"
-                self.engine = UnavailableChatEngine(name: model.name, detail: detail)
+                if Task.isCancelled {
+                    self.engine = ChatRouter.placeholderEngine(for: self.chatRoute)
+                    self.error = "Model loading cancelled. Choose a model to continue."
+                } else {
+                    // Keep the saved route. Do not silently generate with Apple or a remote provider.
+                    self.engine = UnavailableChatEngine(name: model.name, detail: "Model could not load: \(error.localizedDescription)")
+                    self.error = self.engine.availability.detail
+                }
             }
             self.refreshEngine()
         }
     }
     func cancelModelLoad() { modelLoadTask?.cancel() }
+
+    func forgetDeletedModel(_ model: DownloadableModel) {
+        guard data.selectedModelID == model.id else { return }
+        guard change({ $0.selectedModelID = nil }) else { return }
+        applyRouteEngine()
+    }
 
     @discardableResult
     func send(_ text: String, in id: UUID) -> Bool {

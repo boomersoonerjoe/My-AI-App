@@ -232,6 +232,7 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section("Processing") {
+                    LabeledContent("Route", value: ChatRouter.describe(store.chatRoute))
                     LabeledContent("Default", value: "Local")
                     NavigationLink { ModelManagerView() } label: {
                         LabeledContent("Chat model", value: store.engineName)
@@ -263,7 +264,7 @@ struct SettingsView: View {
                 }
                 Section("Build") {
                     LabeledContent("Version", value: "0.3 · Downloadable models")
-                    Text("Next: test local models on your iPhone and add local image generation.")
+                    Text("Next: test local models on your iPhone. Image generation remains deferred until after V1 chat.")
                 }
             }.navigationTitle("Settings")
         }
