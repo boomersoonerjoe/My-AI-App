@@ -1,0 +1,302 @@
+[
+  {
+    "question": "When is Amazon having its Prime deal sales this October?",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "Amazon Prime Day October 2026 dates",
+        "Amazon Prime sale dates October 2026"
+      ],
+      "terms": [
+        "Amazon",
+        "Prime",
+        "Prime Day",
+        "October 2026"
+      ],
+      "kind": "web"
+    },
+    "answer": "Amazon's Prime Big Deal Days are scheduled for October 6\u20137, 2026. Deals begin at 12:01 a.m. PDT on the first day and run for two days with new deals dropping three times daily.",
+    "provider": "DuckDuckGo web search",
+    "searchQueries": [
+      "Amazon Prime Day October 2026 dates",
+      "Amazon Prime sale dates October 2026"
+    ],
+    "sources": [
+      {
+        "title": "Prime Big Deal Days 2026 is set for October 6-7, 2026 - About Amazon",
+        "url": "https://www.aboutamazon.com/news/retail/amazon-prime-big-deals-day-2026-when-october-6-7",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "Prime Big Deal Days 2026: Save on top deals on tech ... - About Amazon",
+        "url": "https://www.aboutamazon.com/news/retail/prime-big-deal-days-best-deals-savings-2026",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "Prime Big Deal Days 2026 - amazon.com",
+        "url": "https://www.amazon.com/primebigdealdays",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "Amazon Prime Day October Dates and Early Deals 2026",
+        "url": "https://www.bhg.com/amazon-october-prime-day-announcement-early-deals-2026-12120562",
+        "articleStatus": "not read"
+      }
+    ]
+  },
+  {
+    "question": "Are there any Ring camera sales online anywhere?",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "Ring camera sales online",
+        "Ring security cameras on sale"
+      ],
+      "terms": [
+        "Ring",
+        "Ring camera",
+        "sales"
+      ],
+      "kind": "web"
+    },
+    "answer": "Yes, Ring is currently offering sales with discounts up to 50% off select cameras and doorbells, including free shipping on all orders. Specific deals include the Retinal 2K at $60 off, the Battery Doorbell 2K at $60 off (now $39.99), and bundle savings such as a Battery Doorbell plus Indoor Camera kit for $99.98 off.",
+    "provider": "DuckDuckGo web search",
+    "searchQueries": [
+      "Ring camera sales online",
+      "Ring security cameras on sale"
+    ],
+    "sources": [
+      {
+        "title": "Ring Deals, Discounts & Sales for Doorbells, Cameras & Security Systems",
+        "url": "https://ring.com/offers-collection",
+        "articleStatus": "retrieved"
+      }
+    ]
+  },
+  {
+    "question": "Could you check whether the October Prime shopping event has been announced yet and tell me when it starts?",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "October Prime shopping event 2026 announcement start date"
+      ],
+      "terms": [
+        "Prime",
+        "Prime Day",
+        "shopping event",
+        "start date"
+      ],
+      "kind": "web"
+    },
+    "answer": "Yes, the October Prime shopping event has been announced. Amazon's Prime Big Deal Days is scheduled for October 6\u20137, 2026, with early deals available now.",
+    "provider": "DuckDuckGo web search",
+    "searchQueries": [
+      "October Prime shopping event 2026 announcement start date"
+    ],
+    "sources": [
+      {
+        "title": "Prime Big Deal Days 2026 is set for October 6-7, 2026 - About Amazon",
+        "url": "https://www.aboutamazon.com/news/retail/amazon-prime-big-deals-day-2026-when-october-6-7",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "Amazon Prime Day October Dates and Early Deals 2026",
+        "url": "https://www.bhg.com/amazon-october-prime-day-announcement-early-deals-2026-12120562",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "October Prime Day 2026: Important Details And Early Deals - Forbes",
+        "url": "https://www.forbes.com/sites/forbes-personal-shopper/2026/10/02/october-prime-day-2026/",
+        "articleStatus": "restricted"
+      },
+      {
+        "title": "Prime Big Deal Days 2026: Save on top deals on tech, home, beauty, and ...",
+        "url": "https://www.aboutamazon.com/news/retail/prime-big-deal-days-best-deals-savings-2026",
+        "articleStatus": "not read"
+      }
+    ]
+  },
+  {
+    "question": "I'm shopping for an outdoor Ring cam. Where can I get a discounted one at the moment?",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "discounted outdoor Ring camera deals",
+        "best price outdoor Ring security camera store"
+      ],
+      "terms": [
+        "Ring",
+        "outdoor Ring camera",
+        "discounted",
+        "deals"
+      ],
+      "kind": "web"
+    },
+    "answer": "You can buy discounted outdoor Ring cameras directly from Ring.com, where deals like the Outdoor Cam 2K are currently $49.99 (down from $99.99) and bundles are up to 50% off with free shipping.",
+    "provider": "DuckDuckGo web search",
+    "searchQueries": [
+      "discounted outdoor Ring camera deals",
+      "best price outdoor Ring security camera store"
+    ],
+    "sources": [
+      {
+        "title": "Ring Deals, Discounts & Sales for Doorbells, Cameras & Security Systems",
+        "url": "https://ring.com/offers-collection",
+        "articleStatus": "retrieved"
+      }
+    ]
+  },
+  {
+    "question": "How much would the base iPad cost if I bought it from Apple today?",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "Apple base iPad price",
+        "iPad base model starting price Apple"
+      ],
+      "terms": [
+        "iPad",
+        "Apple",
+        "base iPad",
+        "price"
+      ],
+      "kind": "web"
+    },
+    "answer": "The base iPad costs $449 when purchased directly from Apple today.",
+    "provider": "DuckDuckGo web search",
+    "searchQueries": [
+      "Apple base iPad price",
+      "iPad base model starting price Apple"
+    ],
+    "sources": [
+      {
+        "title": "Buy iPad - Apple",
+        "url": "https://www.apple.com/shop/buy-ipad/ipad",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "Buy iPad - Apple",
+        "url": "https://www.apple.com/shop/buy-ipad",
+        "articleStatus": "unavailable"
+      },
+      {
+        "title": "Apple iPads Prices in USA October 2026 | USD Rates",
+        "url": "https://www.mobile57.com/us/tablets/apple/",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "Apple raises Mac and iPad prices, spares iPhone for now",
+        "url": "https://finance.yahoo.com/technology/articles/apple-raises-mac-ipad-prices-145235673.html",
+        "articleStatus": "not read"
+      }
+    ]
+  },
+  {
+    "question": "Catch me up on the newest developments in space exploration in the news.",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "newest space exploration news"
+      ],
+      "terms": [
+        "space exploration",
+        "latest developments"
+      ],
+      "kind": "news"
+    },
+    "answer": "NASA recently launched Crew-13 to the International Space Station, and Rice University experts are available to discuss human spaceflight safety and policy.",
+    "provider": "Google News RSS",
+    "searchQueries": null,
+    "sources": [
+      {
+        "title": "Rice experts available to discuss human spaceflight, safety and space policy",
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPakJiSTdleWdneHBJSlY2NlZ1aFJGcnVwUXc4alhGNXhHdXJWSFBja3BpSkNXLW1HdmljeGRVSk00U1RITHhVTzlGbjFYcEhBdnRMUG1yOHRfcVB6Z3E5NUZNVS1fREdMNWVGN3hpQk8tN2RNd0FBcXR4cTBrcnplelhYMWMydy1hbm9mYVpxMV9hdl9WTXRDNXY5eEo5MmxGbTNRUWRMUQ?oc=5",
+        "articleStatus": "not read"
+      },
+      {
+        "title": "WATCH: NASA launches Crew-13 to International Space Station",
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOYWZDT0t1Um5wVVBnVXd3RU13V1EyckdlQ21BTENCelEyVGtTZ0VCOVdJU0YtcnNTM194ekNxdEFEVTE3S2VEUldGSVFURl9TNXM1d3VoNDloYVl5dnRFYUQ3Mm56UkZEbWMzLVRtQ2p2U3NKNDFBSzNQRnlFX0MzSWtMeTRYRUs5QkE1ZTJmSXIwMFV4NndKV3JFZw?oc=5",
+        "articleStatus": "not read"
+      },
+      {
+        "title": "On this day in space! Sept. 29, 1977: The Soviet Union's Salyut 6 space station launches into orbit for long-duration spaceflights",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxON09HYVM1eFlwckg3SjhjTWc5eTRWN092S1d5UFdiOF9IV3NxRHRMWTk5N0pCOXB3aDQ5UVdzTWhGRV9nN1JJeTBBMjAxMkVlLVRWdTRpWmRSTUYybEg2Sk13TFg1RVJsVl9ndm5CdFI3UzhHTlFyOUNrTzl6WkpwS0xkN1A?oc=5",
+        "articleStatus": "not read"
+      },
+      {
+        "title": "The next generation\u2019s guide to the new space economy",
+        "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5kM0dRby1WTlJscTlqMTN3TThOZDA2NE0tN013UjRmdk96X0hSajd0REd3clJCaVBBWm1KXzF4dnZtSkVCQm1odFc3U3M1RVVQeVAtXzVNZ3Nud3M2UnhvLVIweWtORW9h?oc=5",
+        "articleStatus": "not read"
+      }
+    ]
+  },
+  {
+    "question": "Before I head out, what's it feeling like outside in Tulsa, Oklahoma?",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "current weather in Tulsa Oklahoma"
+      ],
+      "terms": [
+        "Tulsa",
+        "Oklahoma",
+        "Tulsa Oklahoma",
+        "current weather"
+      ],
+      "kind": "weather"
+    },
+    "answer": "It is currently 67\u00b0F in Tulsa, and it feels like 66\u00b0F with a light breeze.",
+    "provider": "Open-Meteo (free noncommercial weather)",
+    "searchQueries": null,
+    "sources": [
+      {
+        "title": "Tulsa, Oklahoma, United States current weather model",
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=36.15398&longitude=-95.99277&current=temperature_2m%2Capparent_temperature%2Crelative_humidity_2m%2Cwind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timeformat=unixtime&timezone=UTC&forecast_days=1",
+        "articleStatus": "not read"
+      }
+    ]
+  },
+  {
+    "question": "When does the Tulsa Costco close this evening?",
+    "plan": {
+      "retrieve": true,
+      "queries": [
+        "Tulsa Costco closing time October"
+      ],
+      "terms": [
+        "Tulsa",
+        "Costco",
+        "Tulsa Costco",
+        "closing time"
+      ],
+      "kind": "web"
+    },
+    "answer": "The Tulsa Costco at 10220 S Memorial Dr closes at 8:30 PM this evening for Executive Members and 8:30 PM for Gold Star & Business Members. Hours may vary on holidays, so it is recommended to call ahead to confirm.",
+    "provider": "DuckDuckGo web search",
+    "searchQueries": [
+      "Tulsa Costco closing time October"
+    ],
+    "sources": [
+      {
+        "title": "Tulsa, OK Warehouse | Costco",
+        "url": "https://www.costco.com/w/-/ok/tulsa/1207",
+        "articleStatus": "unavailable"
+      },
+      {
+        "title": "North Tulsa Tulsa, OK Warehouse | Costco",
+        "url": "https://www.costco.com/w/-/ok/tulsa/1640",
+        "articleStatus": "unavailable"
+      },
+      {
+        "title": "Costco Warehouse - 10220 S MEMORIAL DR, TULSA | Hours, Gas Prices ...",
+        "url": "https://www.costconearme.com/warehouse/tulsa/costco-10220-s-memorial-dr",
+        "articleStatus": "retrieved"
+      },
+      {
+        "title": "Costco Tulsa - 4816 N 118th Ave E | Hours & Directions",
+        "url": "https://www.costconearme.com/warehouse/tulsa/costco-4816-n-118th-ave-e",
+        "articleStatus": "not read"
+      }
+    ]
+  }
+]

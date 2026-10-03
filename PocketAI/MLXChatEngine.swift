@@ -27,11 +27,16 @@ final class MLXChatEngine: ChatEngine {
     private init(name: String, container: ModelContainer) { self.name = name; self.container = container }
     static func load(model: DownloadableModel, directory: URL) async throws -> MLXChatEngine {
         try Task.checkCancellation()
+        #if targetEnvironment(simulator)
+        // MLX requires Metal GPU capabilities the iOS simulator does not expose.
+        throw ChatError.unavailable("Downloaded MLX models require a physical iPhone. In this simulator, select the Apple on-device model for chat.")
+        #else
         // This overload takes a local directory and no downloader. Tokenizer files are local too.
         let container = try await LLMModelFactory.shared.loadContainer(
             from: directory, using: #huggingFaceTokenizerLoader())
         try Task.checkCancellation()
         return MLXChatEngine(name: model.name, container: container)
+        #endif
     }
     func generate(_ request: ChatRequest, onUpdate: @escaping @MainActor (String) -> Void) async throws -> String {
         try Task.checkCancellation()

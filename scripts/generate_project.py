@@ -42,6 +42,9 @@ products = add('products','PBXGroup',children=[app_product,test_product],name='P
 main = add('main','PBXGroup',children=[app_group,test_group,products],sourceTree='<group>')
 common = {'SDKROOT':'iphoneos','IPHONEOS_DEPLOYMENT_TARGET':'26.0','SWIFT_VERSION':'5.0','CLANG_ENABLE_MODULES':'YES','CODE_SIGN_STYLE':'Automatic','TARGETED_DEVICE_FAMILY':'1','SUPPORTED_PLATFORMS':'iphoneos iphonesimulator','SUPPORTS_MACCATALYST':'NO'}
 project_configs = config_list('project',common)
+# Match SwiftPM's Debug builds to the selected simulator architecture.
+# Otherwise the app links x86_64 against arm64-only package objects on Apple Silicon.
+objects[uid('projectDebug')]['buildSettings']['ONLY_ACTIVE_ARCH'] = 'YES'
 app_configs = config_list('app',{'PRODUCT_NAME':'$(TARGET_NAME)','PRODUCT_BUNDLE_IDENTIFIER':'com.example.PocketAI','GENERATE_INFOPLIST_FILE':'YES','INFOPLIST_KEY_CFBundleDisplayName':'Pocket AI','INFOPLIST_KEY_UILaunchScreen_Generation':'YES','INFOPLIST_KEY_UIApplicationSceneManifest_Generation':'YES','INFOPLIST_KEY_UISupportedInterfaceOrientations':'UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight','MARKETING_VERSION':'0.3.0','CURRENT_PROJECT_VERSION':'3','LD_RUNPATH_SEARCH_PATHS':'$(inherited) @executable_path/Frameworks'})
 test_configs = config_list('test',{'PRODUCT_NAME':'$(TARGET_NAME)','PRODUCT_BUNDLE_IDENTIFIER':'com.example.PocketAI.Tests','GENERATE_INFOPLIST_FILE':'YES','TEST_HOST':'$(BUILT_PRODUCTS_DIR)/PocketAI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PocketAI','BUNDLE_LOADER':'$(TEST_HOST)','LD_RUNPATH_SEARCH_PATHS':'$(inherited) @executable_path/Frameworks @loader_path/Frameworks'})
 def phase(label, kind): return add(label,kind,buildActionMask=2147483647,files=[],runOnlyForDeploymentPostprocessing=0)

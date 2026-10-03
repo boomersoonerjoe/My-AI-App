@@ -1,0 +1,341 @@
+{
+  "checkedAt": "2026-10-03T06:23:17.530Z",
+  "timeZone": "America/Chicago",
+  "runtime": "installed local Ollama; existing local web API; free search/weather sources",
+  "cases": [
+    {
+      "question": "What happened in Tulsa today?",
+      "answer": "I checked live news sources, but found no matching reports published on 2026-10-03 yet.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": false,
+      "retryableError": false,
+      "provider": "Google News RSS",
+      "fetchedAt": "2026-10-03T06:21:47.235Z",
+      "scope": "today",
+      "newsStatus": "no-reports-today",
+      "searchedDay": "2026-10-03",
+      "currentPrice": null,
+      "sources": []
+    },
+    {
+      "question": "What happened in Tulsa, OK today?",
+      "answer": "I checked live news sources, but found no matching reports published on 2026-10-03 yet.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": false,
+      "retryableError": false,
+      "provider": "Google News RSS",
+      "fetchedAt": "2026-10-03T06:21:50.321Z",
+      "scope": "today",
+      "newsStatus": "no-reports-today",
+      "searchedDay": "2026-10-03",
+      "currentPrice": null,
+      "sources": []
+    },
+    {
+      "question": "What is the current price of Sony WH-1000XM6 headphones right now?",
+      "answer": "I searched live sources, but could not verify a current retailer price or active sale.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": false,
+      "retryableError": false,
+      "provider": "DuckDuckGo web search",
+      "fetchedAt": "2026-10-03T06:21:53.445Z",
+      "scope": "web",
+      "newsStatus": null,
+      "searchedDay": null,
+      "currentPrice": {
+        "status": "unverified",
+        "checkedAt": "2026-10-03T06:21:53.445Z",
+        "facts": []
+      },
+      "sources": [
+        {
+          "title": "Sony WH-1000XM6 Black (21 stores) see the best price - Klarna",
+          "url": "https://www.klarna.com/us/shopping/pl/cl94/3410100348/Headphones/Sony-WH-1000XM6-Black/",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "The premium Sony WH-1000XM6 headphones are $60 off now - SoundGuys",
+          "url": "https://www.soundguys.com/sonys-wh-1000xm6-headphones-deal-159831/",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Amazon.com: Sony WH-1000XM6 The Best Noise Cancelling Wireless ...",
+          "url": "https://www.amazon.com/clp/B0F3PQHWTZ",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Sony - WH-1000XM6- Best Wireless Noise Cancelling Headphones - Black",
+          "url": "https://www.bestbuy.com/product/sony-wh-1000xm6-best-wireless-noise-cancelling-headphones-black/J7XSRH5RCF",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "How much is Apple asking for its entry-level MacBook Air right now?",
+      "answer": "Apple's entry-level MacBook Air, featuring the M5 chip with 16GB memory and 512GB storage, is currently listed at $1,299. This price applies to both the Midnight and Silver color options available directly from Apple.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": true,
+      "retryableError": false,
+      "provider": "DuckDuckGo web search",
+      "fetchedAt": "2026-10-03T06:22:02.205Z",
+      "scope": "web",
+      "newsStatus": null,
+      "searchedDay": null,
+      "currentPrice": {
+        "status": "verified-live",
+        "checkedAt": "2026-10-03T06:22:02.205Z",
+        "facts": [
+          {
+            "name": "MacBook Air, 13-inch, M5 Chip, 10-core CPU, 8-core GPU, Midnight, 16GB memory, 512GB storage",
+            "price": "1299",
+            "currency": "USD",
+            "saleVerified": false,
+            "url": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch-midnight-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+            "seller": "www.apple.com"
+          },
+          {
+            "name": "MacBook Air, 13-inch, M5 Chip, 10-core CPU, 8-core GPU, Silver, 16GB memory, 512GB storage",
+            "price": "1299",
+            "currency": "USD",
+            "saleVerified": false,
+            "url": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch-silver-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+            "seller": "www.apple.com"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "MacBook Air, 13-inch, M5 Chip, 10-core CPU, 8-core GPU, Midnight, 16GB memory, 512GB storage",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch-midnight-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": "merchant",
+          "pageFetchedAt": "2026-10-03T06:22:06.155Z"
+        },
+        {
+          "title": "MacBook Air, 13-inch, M5 Chip, 10-core CPU, 8-core GPU, Silver, 16GB memory, 512GB storage",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch-silver-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": "merchant",
+          "pageFetchedAt": "2026-10-03T06:22:06.156Z"
+        }
+      ]
+    },
+    {
+      "question": "What is the weather in Tulsa right now?",
+      "answer": "It's currently 62\u00b0F in Tulsa, and it feels like 60\u00b0F.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": true,
+      "retryableError": false,
+      "provider": "Open-Meteo (free noncommercial weather)",
+      "fetchedAt": "2026-10-03T06:22:25.735Z",
+      "scope": "weather",
+      "newsStatus": null,
+      "searchedDay": null,
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Tulsa, Oklahoma, United States current weather model",
+          "url": "https://api.open-meteo.com/v1/forecast?latitude=36.15398&longitude=-95.99277&current=temperature_2m%2Capparent_temperature%2Crelative_humidity_2m%2Cwind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timeformat=unixtime&timezone=UTC&forecast_days=1",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "When is Amazon having its Prime deal sales this October?",
+      "answer": "Amazon's Prime Big Deal Days are scheduled for October 6\u20137, 2026, featuring 48 hours of exclusive deals across over 35 categories. Starting at 12:01 a.m. PDT on the first day, new deals will drop three times daily throughout the event.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": true,
+      "retryableError": false,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "fetchedAt": "2026-10-03T06:22:43.764Z",
+      "scope": "web",
+      "newsStatus": null,
+      "searchedDay": null,
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Prime Big Deal Days 2026 is set for October 6-7, 2026 - About Amazon",
+          "url": "https://www.aboutamazon.com/news/retail/amazon-prime-big-deals-day-2026-when-october-6-7",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": "editorial",
+          "pageFetchedAt": "2026-10-03T06:22:45.182Z"
+        },
+        {
+          "title": "Prime Big Deal Days 2026: Save on top deals on tech ... - About Amazon",
+          "url": "https://www.aboutamazon.com/news/retail/prime-big-deal-days-best-deals-savings-2026",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": "editorial",
+          "pageFetchedAt": "2026-10-03T06:22:45.184Z"
+        },
+        {
+          "title": "Amazon Prime Big Deal Days 2026: Deals, tips, & updates",
+          "url": "https://www.aboutamazon.com/prime-big-deal-days",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T06:22:45.185Z"
+        },
+        {
+          "title": "Prime Big Deal Days 2026 - amazon.com",
+          "url": "https://www.amazon.com/primebigdealdays",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "Are Sony WH-1000XM6 headphones on sale now?",
+      "answer": "I searched live sources, but could not verify a current retailer price or active sale.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": false,
+      "retryableError": false,
+      "provider": "DuckDuckGo web search",
+      "fetchedAt": "2026-10-03T06:23:08.257Z",
+      "scope": "web",
+      "newsStatus": null,
+      "searchedDay": null,
+      "currentPrice": {
+        "status": "unverified",
+        "checkedAt": "2026-10-03T06:23:08.257Z",
+        "facts": []
+      },
+      "sources": [
+        {
+          "title": "Best Sony WH-1000XM6 Deals 2026: $80 Off Current Price Guide",
+          "url": "https://www.propelrc.com/best-sony-wh-1000xm6-deals/",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Sony Wh-1000xm6 Headphones - eBay",
+          "url": "https://www.ebay.com/shop/sony-wh1000xm6-headphones?_nkw=sony+wh-1000xm6+headphones",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "What is the current price of a MacBook Air?",
+      "answer": "I searched live sources, but could not verify a current retailer price or active sale.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": false,
+      "retryableError": false,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "fetchedAt": "2026-10-03T06:23:12.743Z",
+      "scope": "web",
+      "newsStatus": null,
+      "searchedDay": null,
+      "currentPrice": {
+        "status": "unverified",
+        "checkedAt": "2026-10-03T06:23:12.743Z",
+        "facts": []
+      },
+      "sources": [
+        {
+          "title": "Best MacBook Air Deals for October 2026 - Save up to $150",
+          "url": "https://appleinsider.com/deals/best-macbook-air-deals",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Best MacBook Deals in 2026: MacBook Neo, Air and Pro at Their Lowest Prices",
+          "url": "https://www.cnet.com/deals/best-macbook-deals/",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Buy MacBook Air - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Buy 15-inch MacBook Air - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/15-inch",
+          "publishedAt": null,
+          "publishedDay": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "Give me the latest Tulsa local news.",
+      "answer": "The latest reporting covers \u201cFriday cold front brings fall weather for the weekend\u201d and \u201cTransformation Church conference expected to draw thousands to Tulsa, boosting city appeal\u201d.",
+      "liveRetrievalPerformed": true,
+      "localModelReceivedEvidence": true,
+      "retryableError": false,
+      "provider": "Google News RSS",
+      "fetchedAt": "2026-10-03T06:23:17.530Z",
+      "scope": "recent",
+      "newsStatus": null,
+      "searchedDay": null,
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Friday cold front brings fall weather for the weekend",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9SamYzblJ2SXRTNVlzc0JtR0FxNVRMd0V1ZnpKSHdBeXJJSURzYWtMUW0yOVNzM1Y1RkVscEctSGVYZ3d1RXZ1UTdOb0J3UGVzVmxXT2tCYVRIUHZrM0tJbzRyQnI?oc=5",
+          "publishedAt": "2026-10-03T03:13:25.000Z",
+          "publishedDay": "2026-10-02",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T06:23:18.220Z"
+        },
+        {
+          "title": "Transformation Church conference expected to draw thousands to Tulsa, boosting city appeal",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNZXI4WW5FRUFjWllwdk15ZnZuN0NBaXBYNEFFVHZHZm9qeVNUNjc2clZxTmQ1QjRxTFhUZTdYdHhTODJNVUFKdGJPTlMwdEkxX0dGcmZwbnQ2RDRQQVFHUHRoeWNZZlMzUTRIbHVsUFVtU3Y0dWI4cEhJa0ZzV05uS3JrWGVqdVpzWHgxYld0TXlBdlc3N2psZmNiSXNGR2JYdUo5ckktMVZnbDgzcnhUdTBiQWZoOWx4OXRNekRrTC1vWDBWaGo4bg?oc=5",
+          "publishedAt": "2026-09-30T00:11:09.000Z",
+          "publishedDay": "2026-09-29",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T06:23:18.221Z"
+        },
+        {
+          "title": "Transformation Church conference expected to draw thousands to Tulsa, boosting city appeal",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPeFZucW5pUFpleXhGR1FiQ1BaRk4wSXpBLTdjQWw5OGFPTVlOSjlDb1dWZ25XeldBQjlqM0l0bEFTa0pVQ3lYN3JBS3BjUkhHenBrWjJaUmd6aVNlNU9pejlGSUkzRDFjblNLczVCRjNwYTJSamxpaDIzLXkzb3FkbDFGbGg3Y245aG5jY0s0bFZ1MUFzLUV1bWZlaHQ3YlZCQ0czNG5qTHBmUDczVHJjMDVlbzZJOUVy?oc=5",
+          "publishedAt": "2026-09-30T01:00:57.000Z",
+          "publishedDay": "2026-09-29",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T06:23:18.221Z"
+        },
+        {
+          "title": "New affordable housing complex opens in North Tulsa as part of $210M development project",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdTY3XzZmTEZGd2NCRGJWVkxXdGp5aU1maXpCTTBROFN4OHpIVUwxekt3Z0VsSWJEUVhEZEloUmg0QVBvU3AxTGsyMjYtVUhNZXNGMm52anRaQ1pNMmxjYm9HUkFtdG1QQV82TkVjVGdNMFcyalBXelRuanluNDRYQU9GaUJFanRBMzRMUHNJZ0hMcV9GMFZKejZaMHJ3b09oSDd6dVZNZmotdUpORzc0NGVSVGFscUEyWVNPQ3lxd2p0UnRmTVFR?oc=5",
+          "publishedAt": "2026-09-29T17:36:28.000Z",
+          "publishedDay": "2026-09-29",
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    }
+  ]
+}

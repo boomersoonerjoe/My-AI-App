@@ -1,0 +1,32 @@
+# Internet retrieval repair — October 2, 2026
+
+The previous fix stopped at classification. Its live tests accepted any nonempty source list and used a stub summarizer; they did not establish useful results or real local-model answers.
+
+## Reproduced causes
+
+1. **Amazon October sale dates:** the running `/api/search` returned Amazon's home page, account page, music page and jobs page. The raw conversational question went straight to public engines. Brave was rate-limited; Bing over-weighted the subject's first word. The service accepted unrelated nonempty results, stopped trying, had no general relevance check, and did not read the official announcement. The missing dates were a retrieval failure, not absent access to the internet.
+2. **Ring sales:** the updated classifier already recognizes the exact question as live. The running server nevertheless returned dictionary definitions of “there” and the virtual-world site there.com. Its first four results were treated as success. The system instruction explicitly said the model cannot browse, even when the app supplies evidence; that contradictory instruction invited a capability refusal instead of a useful answer. The owner's earlier browser request is not logged, so I cannot prove whether that particular turn made a network request or used an older loaded client. I directly reproduced the bad server results and inspected the contradictory prompt.
+3. **Additional end-to-end failures:** the article reader decoded compressed Amazon HTML as UTF-8 without decompressing it. Binary garbage was accepted as article text and confused Ollama. Its 1 MiB limit also rejected a legitimate Apple product-pricing page just over that size. Text extraction flattened opening-hours tables, encouraging weekday/department confusion. Generic national hours pages, old event offers and dated deal guides could be presented as current facts.
+
+## Changes
+
+- Added a local semantic retrieval planner to both chat providers. It decides whether fresh facts are needed, selects web/news/weather, and creates up to two subject-focused queries. It runs before answering in enabled search modes. Existing deterministic live routes remain a fallback; no new user-question keyword rules were added in this repair.
+- The planner sees the current query and trusted device date, never the conversation/history/memory prompt. Named sellers, products and cities are retained even if the small model drops one. Gratuitous query years are removed for current prices and hours. Local clock, memory-save/confirmation, supplied arithmetic, recalled articles, Off mode and offline handling retain their paths.
+- Added DuckDuckGo organic retrieval, safe redirect-link decoding, subject/intent/location matching, rejection of unrelated results, multi-query aggregation and existing-engine fallback. Search challenges are treated as unavailable. Rate limits and missing useful results no longer count as successful evidence merely because HTML exists.
+- Rank direct manufacturer/store and announcement sources above generic guides; use an available priced manufacturer offer catalog instead of mixing it with old event offers. Refine a named supplier price query when the first supplier page lacks usable prices. Recent news retains publication-date filtering and uses focused topic queries.
+- Read source pages using the existing public-DNS pinning, private-address rejection, redirect checking and deadlines. Decode gzip/deflate/Brotli, reject binary content, bound decompressed HTML to 2 MiB, retain table/list boundaries and pass bounded passages into inference. Unavailable reading status is never evidence of unavailable stock.
+- The answer prompt explicitly acknowledges retrieved access, asks for conversational evidence-based answers, preserves exact store/model/date context and avoids capability refusals. The latest question and device date are repeated after the bounded evidence.
+- Rebuilt the production client and restarted only the existing web LaunchAgent. Ollama configuration/autostart, browser storage, memory, saved location and unrelated lifecycle changes were not replaced.
+
+## Validation
+
+- **133 deterministic tests passed**, 27 opt-in tests skipped. TypeScript and production build passed; diff whitespace check passed. Existing location, saved-memory, provider-startup, cancellation, reply persistence, article reuse, server-origin/private-network guards and ordinary local routing tests passed.
+- **Eight natural questions** went through the real `searchInternet` client, running `/api/search`, public sources and installed Qwen/Ollama. Both owner examples and six independently worded questions were supplied through a temporary input file, not embedded in the live harness or matched to canned responses. Results are in `INTERNET-RETRIEVAL-LIVE-RESULTS.json`.
+- Amazon date example: official announcement retrieved and summarized as October 6–7, 2026. Ring example: live offers catalog retrieved and summarized with its current discounts. The natural outdoor-camera question yielded Ring's Outdoor Cam 2K offer at $49.99 versus $99.99.
+- Other live cases: base iPad price $449 (supported by retrieved pricing coverage), recent space headlines, Open-Meteo Tulsa temperature/feels-like, and Tulsa Costco closing at 8:30 PM on the supplied Friday. These were inspected against the evidence, not just checked for source count. The initial store-hours/model errors were caught during validation and table extraction was repaired.
+- **Four independent local questions** ran through real Ollama with zero search requests: a conceptual explanation, a stable geography fact, creative writing with search Off and supplied-price arithmetic.
+- The existing real-Ollama memory test passed cross-chat saved recall, edited recall and deleted-note behavior in isolated fixture storage. User storage was untouched.
+
+Live harness: `web/tests/retrieval-e2e-live.test.mjs` reads `NHOMEAI_QUESTION_FILE` and optionally writes `NHOMEAI_REPORT_FILE`; set `NHOMEAI_USE_LOCAL_API=1` to test the running app route. Source text is not retained in the checked-in result summary.
+
+Public engines can still rate-limit and individual pages can remain unavailable. The app should report a specific missing detail or a real retrieval failure instead of pretending it has no browsing capability or inventing current facts. A loaded browser tab needs reloading to use the rebuilt frontend. No push or merge was performed.

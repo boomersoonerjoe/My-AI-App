@@ -1,0 +1,485 @@
+{
+  "date": "2026-10-02 America/Chicago",
+  "method": "Actual application orchestration, local /api/search, public retrieval and installed Qwen/Ollama; latest successful result per question across verification runs. Earlier failures were diagnosed and rerun; this is not represented as one uninterrupted passing run. Page bodies omitted.",
+  "currentInformationQuestions": 10,
+  "localControls": 3,
+  "regressionTestsPassed": 148,
+  "realOllamaPreservationTestsPassed": 4,
+  "results": [
+    {
+      "question": "Are there any Ring camera sales online anywhere?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Ring camera sales online",
+          "Ring security cameras on sale"
+        ],
+        "terms": [
+          "Ring",
+          "Ring camera",
+          "sales"
+        ],
+        "kind": "web"
+      },
+      "answer": "Yes, Ring is currently offering significant discounts on several cameras and doorbells, with deals like the Battery Doorbell 2K listed at $39.99 (down from $99.99) and the Outdoor Cam 2K at $49.99 (down from $99.99). These savings are part of their official offers collection which also includes bundle kits and subscription-based discounts.",
+      "retrievedAt": "2026-10-03T04:14:08.271Z",
+      "queries": [
+        "Ring camera sales online",
+        "Ring security cameras on sale"
+      ],
+      "provider": "DuckDuckGo web search",
+      "sources": [
+        {
+          "title": "Ring Deals, Discounts & Sales for Doorbells, Cameras & Security Systems",
+          "url": "https://ring.com/offers-collection",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        }
+      ]
+    },
+    {
+      "question": "When is Amazon having its Prime deal sales this October?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Amazon Prime Day October 2026 dates",
+          "Amazon Prime sale dates October 2026"
+        ],
+        "terms": [
+          "Amazon",
+          "Prime",
+          "Prime Day",
+          "October 2026"
+        ],
+        "kind": "web"
+      },
+      "answer": "Amazon's Prime Big Deal Days are scheduled for October 6\u20137, 2026, running for 48 hours starting at 12:01 a.m. PDT. These two days will feature exclusive deals across more than 35 categories including tech, fashion, and holiday essentials.",
+      "retrievedAt": "2026-10-03T04:09:18.919Z",
+      "queries": [
+        "Amazon Prime Day October 2026 dates",
+        "Amazon Prime sale dates October 2026"
+      ],
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "sources": [
+        {
+          "title": "Prime Big Deal Days 2026 is set for October 6-7, 2026 - About Amazon",
+          "url": "https://www.aboutamazon.com/news/retail/amazon-prime-big-deals-day-2026-when-october-6-7",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "Prime Big Deal Days 2026: Save on top deals on tech ... - About Amazon",
+          "url": "https://www.aboutamazon.com/news/retail/prime-big-deal-days-best-deals-savings-2026",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "Prime Big Deal Days 2026 - amazon.com",
+          "url": "https://www.amazon.com/primebigdealdays",
+          "publishedAt": null,
+          "articleStatus": "unavailable"
+        },
+        {
+          "title": "Amazon Prime Big Deal Days 2026: Deals, tips, & updates",
+          "url": "https://www.aboutamazon.com/prime-big-deal-days",
+          "publishedAt": null,
+          "articleStatus": null
+        }
+      ]
+    },
+    {
+      "question": "Any discounts worth checking on Sony WH-1000XM6 headphones at the moment?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Sony WH-1000XM6 discount price",
+          "Sony WH-1000XM6 deals online"
+        ],
+        "terms": [
+          "Sony",
+          "Sony WH-1000XM6 headphones",
+          "discounts"
+        ],
+        "kind": "web"
+      },
+      "answer": "PhoneArena reports that while the original $62 discount on the Sony WH-1000XM6 has mostly ended, a remaining offer still allows you to score brand-new headphones for $62 off. This deal is currently available at Amazon, bringing the price down to just under $399.",
+      "retrievedAt": "2026-10-03T04:17:27.010Z",
+      "queries": [
+        "Sony WH-1000XM6 discount price",
+        "Sony WH-1000XM6 deals online"
+      ],
+      "provider": "DuckDuckGo web search",
+      "sources": [
+        {
+          "title": "This Sony WH-1000XM6 color is miraculously still on sale ... - PhoneArena",
+          "url": "https://www.phonearena.com/news/sony-wh-1000xm6-amazon-deal_id183379",
+          "publishedAt": null,
+          "articleStatus": "restricted"
+        }
+      ]
+    },
+    {
+      "question": "How much is Apple asking for its entry-level MacBook Air?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Apple entry-level MacBook Air price",
+          "Apple MacBook Air base price"
+        ],
+        "terms": [
+          "Apple",
+          "MacBook",
+          "Air",
+          "entry-level MacBook Air",
+          "price"
+        ],
+        "kind": "web"
+      },
+      "answer": "Apple lists its entry-level 13-inch MacBook Air with the M5 chip, 16GB memory, and 512GB storage at USD 1,299. This price applies to both the Midnight and Silver color options shown in the retrieved product listings.",
+      "retrievedAt": "2026-10-03T04:29:48.093Z",
+      "queries": [
+        "Apple entry-level MacBook Air price",
+        "Apple MacBook Air base price"
+      ],
+      "provider": "DuckDuckGo web search",
+      "sources": [
+        {
+          "title": "MacBook Air, 13-inch, M5 Chip, 10-core CPU, 8-core GPU, Midnight, 16GB memory, 512GB storage",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch-midnight-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "MacBook Air, 13-inch, M5 Chip, 10-core CPU, 8-core GPU, Silver, 16GB memory, 512GB storage",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch-silver-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "Buy MacBook Air, 13-inch, M5 Chip, 10-core CPU, 8-core GPU ... - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch-midnight-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "Buy 15-inch MacBook Air - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/15-inch",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        }
+      ]
+    },
+    {
+      "question": "Catch me up on the latest NASA announcements.",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "NASA latest announcements October",
+          "NASA news headlines October"
+        ],
+        "terms": [
+          "NASA",
+          "NASA announcements",
+          "latest news"
+        ],
+        "kind": "news"
+      },
+      "answer": "NASA recently launched Crew-13 to the International Space Station, which could set a record for the fastest U.S. trip there, and published October 2026 skywatching tips earlier this month. However, full details on these announcements are currently unavailable in the retrieved sources.",
+      "retrievedAt": "2026-10-03T04:15:01.826Z",
+      "queries": null,
+      "provider": "Google News RSS",
+      "sources": [
+        {
+          "title": "What\u2019s Up: October 2026 Skywatching Tips from NASA",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRTJpczAybGU3NzRKVEpxVGNvUTBlQUl2b3A2Z25sTk1yakdSb0tWbS1GaG10cWowRVJjaWRrNHdtT2hqRl9SU0ZBNm9LaTlIX0pSSUtzRkVYRnFSdkF4OFYwNndzejd3TEFFWnItbGlUMEo2SVYycTJ2X0hycjluT3h5bDlwbkpSRGUxX3VHOEF5enhXQUVPc1NQcVNSU25l?oc=5",
+          "publishedAt": "2026-09-30T23:35:06.000Z",
+          "articleStatus": "unavailable"
+        },
+        {
+          "title": "WATCH: NASA launches Crew-13 to International Space Station",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOYWZDT0t1Um5wVVBnVXd3RU13V1EyckdlQ21BTENCelEyVGtTZ0VCOVdJU0YtcnNTM194ekNxdEFEVTE3S2VEUldGSVFURl9TNXM1d3VoNDloYVl5dnRFYUQ3Mm56UkZEbWMzLVRtQ2p2U3NKNDFBSzNQRnlFX0MzSWtMeTRYRUs5QkE1ZTJmSXIwMFV4NndKV3JFZw?oc=5",
+          "publishedAt": "2026-10-01T20:54:34.000Z",
+          "articleStatus": "unavailable"
+        },
+        {
+          "title": "Watch Live: NASA\u2019s Crew-13 could make the fastest U.S. trip to the ISS ever",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1rUE5vVDBQY21UR0ZFam43cllMYUFjSnM5YjVCY1ZLQ0NVclo4cTNtcnZDdmZMYnhJVVR3aUhtZnVieGszMXRxbzNtUF9GS2dlcVcxY0lUSjhJRGRValZJUTctVDJVV3ZZZDB4NWRxaw?oc=5",
+          "publishedAt": "2026-09-30T09:39:18.000Z",
+          "articleStatus": "unavailable"
+        },
+        {
+          "title": "NASA Scientists Search For Clues About Mars\u2019 Past In Scotland",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMml0THFMUjFudXVQNnY2WjJlQTQ1OEhCWFdJeEZ5b19XVDVmd2lQb1MxR3g3MTIxUW5VZnBQbHJISlJKMzdTMHFOWm15VGsyY3FQWnNVMVhzdVZwUVdYem42WVNqaE0tOEJYcFVRUFgyd3FKWFBTekhfa01UTkFpNE00THRfVzJnYVdTSWhzaTlRQkZDaGNadzAwWm84dw?oc=5",
+          "publishedAt": "2026-10-01T16:44:29.000Z",
+          "articleStatus": null
+        }
+      ]
+    },
+    {
+      "question": "Should I pack an umbrella for Seattle, Washington tomorrow?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Washington current weather in Seattle WA tomorrow"
+        ],
+        "terms": [
+          "Seattle",
+          "Washington",
+          "tomorrow"
+        ],
+        "kind": "weather"
+      },
+      "answer": "Tomorrow in Seattle will have a high of 68\u00b0F, a low of 52\u00b0F, and only a 1% chance of precipitation.",
+      "retrievedAt": "2026-10-03T04:23:40.540Z",
+      "queries": null,
+      "provider": "Open-Meteo (free noncommercial weather)",
+      "sources": [
+        {
+          "title": "Seattle, Washington, United States tomorrow forecast",
+          "url": "https://api.open-meteo.com/v1/forecast?latitude=47.60621&longitude=-122.33207&current=temperature_2m%2Capparent_temperature%2Crelative_humidity_2m%2Cwind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timeformat=unixtime&timezone=auto&forecast_days=2&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_probability_max",
+          "publishedAt": null,
+          "articleStatus": null
+        }
+      ]
+    },
+    {
+      "question": "When does Oktoberfest in Munich wrap up this year?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Oktoberfest Munich 2026 end date",
+          "Munich Oktoberfest 2026 closing day"
+        ],
+        "terms": [
+          "Oktoberfest",
+          "Munich",
+          "2026"
+        ],
+        "kind": "web"
+      },
+      "answer": "The 191st Oktoberfest wraps up on Sunday, October 4, 2026, with the closing B\u00f6llerschie\u00dfen ceremony. This marks the end of the 16-day festival that runs from September 19 to October 4 on the Theresienwiese.",
+      "retrievedAt": "2026-10-03T04:11:03.354Z",
+      "queries": [
+        "Oktoberfest Munich 2026 end date",
+        "Munich Oktoberfest 2026 closing day"
+      ],
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "sources": [
+        {
+          "title": "Welcome to the official Site of the Munich Oktoberfest 2026 ...",
+          "url": "https://www.oktoberfest.de/en",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "Opening hours of the Munich Oktoberfest from 19.9 to 4.10.2026 ...",
+          "url": "https://www.oktoberfest.de/en/information/oktoberfest-opening-times/opening-hours-munich-oktoberfest",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "Oktoberfest 2026 Dates, Hours & Schedule: Full Calendar",
+          "url": "https://www.munichtourism.org/oktoberfest-dates-schedule/",
+          "publishedAt": null,
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "Oktoberfest 2026 Dates & Schedule",
+          "url": "https://oktoberfest2026.com.de/en/dates-schedule/",
+          "publishedAt": null,
+          "articleStatus": null
+        }
+      ]
+    },
+    {
+      "question": "Are there any sales currently going on at Best Buy for Ring cameras?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Best Buy Ring camera sales",
+          "Best Buy Ring deals October"
+        ],
+        "terms": [
+          "Best",
+          "Buy",
+          "Ring",
+          "Best Buy",
+          "Ring cameras"
+        ],
+        "kind": "web"
+      },
+      "answer": "Yes, How-To Geek reports that Best Buy is currently offering a sale on its bestselling Ring 2K doorbell and indoor camera bundle for $60, which saves $80 off the full price of $140. This deal was published on September 28, 2026, so while it may still be active, I cannot verify if it is currently available at Best Buy right now.",
+      "retrievedAt": "2026-10-03T04:15:23.837Z",
+      "queries": [
+        "Best Buy Ring camera sales",
+        "Best Buy Ring deals October"
+      ],
+      "provider": "DuckDuckGo web search",
+      "sources": [
+        {
+          "title": "Ring's bestselling 2K doorbell bundle is now $80 off at Best Buy",
+          "url": "https://www.howtogeek.com/rings-bestselling-2k-doorbell-bundle-is-now-80-off-at-best-buy/",
+          "publishedAt": "2026-09-28T19:41:13.000Z",
+          "articleStatus": "retrieved"
+        },
+        {
+          "title": "ring camera - Best Buy",
+          "url": "https://www.bestbuy.com/site/searchpage.jsp?id=pcat17071&st=ring%20camera",
+          "publishedAt": null,
+          "articleStatus": "unavailable"
+        },
+        {
+          "title": "On Sale Ring Security Cameras - Best Buy",
+          "url": "https://www.bestbuy.com/site/searchpage.jsp?browsedCategory=pcmcat1569783827577&id=pcat17071&qp=currentoffers_facet%3DCurrent%20Deals~On%20Sale&st=pcmcat1569783827577_categoryid%24pcmcat308100050020",
+          "publishedAt": null,
+          "articleStatus": null
+        }
+      ]
+    },
+    {
+      "question": "What's the temperature in Denver, Colorado right now?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "current weather in Denver Colorado"
+        ],
+        "terms": [
+          "Denver",
+          "Colorado",
+          "Denver Colorado",
+          "temperature"
+        ],
+        "kind": "weather"
+      },
+      "answer": "It's currently 60.9\u00b0F in Denver, and it feels like 55.4\u00b0F.",
+      "retrievedAt": "2026-10-03T04:15:55.165Z",
+      "queries": null,
+      "provider": "Open-Meteo (free noncommercial weather)",
+      "sources": [
+        {
+          "title": "Denver, Colorado, United States current weather model",
+          "url": "https://api.open-meteo.com/v1/forecast?latitude=39.73915&longitude=-104.9847&current=temperature_2m%2Capparent_temperature%2Crelative_humidity_2m%2Cwind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timeformat=unixtime&timezone=UTC&forecast_days=1",
+          "publishedAt": null,
+          "articleStatus": null
+        }
+      ]
+    },
+    {
+      "question": "Will it rain here tomorrow?",
+      "expectedSearch": true,
+      "searchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "current weather in Tulsa Oklahoma",
+          "weather in Tulsa Oklahoma tomorrow"
+        ],
+        "terms": [
+          "Weather",
+          "Tulsa",
+          "Oklahoma",
+          "Tulsa Oklahoma",
+          "tomorrow"
+        ],
+        "kind": "weather"
+      },
+      "answer": "Tomorrow in Tulsa will have a high of 74.8\u00b0F and a low of 60.3\u00b0F, with only a 4% chance of precipitation.",
+      "retrievedAt": "2026-10-03T04:24:01.598Z",
+      "queries": null,
+      "provider": "Open-Meteo (free noncommercial weather)",
+      "sources": [
+        {
+          "title": "Tulsa, Oklahoma, United States tomorrow forecast",
+          "url": "https://api.open-meteo.com/v1/forecast?latitude=36.15398&longitude=-95.99277&current=temperature_2m%2Capparent_temperature%2Crelative_humidity_2m%2Cwind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timeformat=unixtime&timezone=auto&forecast_days=2&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_probability_max",
+          "publishedAt": null,
+          "articleStatus": null
+        }
+      ]
+    },
+    {
+      "question": "Explain why the Moon has phases.",
+      "expectedSearch": false,
+      "searchCalls": 0,
+      "localModelReceivedEvidence": false,
+      "routingPassed": true,
+      "plan": {
+        "retrieve": false,
+        "queries": [],
+        "terms": [
+          "lunar phases",
+          "orbital mechanics"
+        ],
+        "kind": "web"
+      },
+      "answer": "The Moon has phases because of the changing angles between the Sun, Earth, and the Moon as they orbit each other. The Moon reflects sunlight, but only half of it is illuminated at any time. From Earth's perspective, we see different portions of this lit side depending on the Moon's position in its orbit, creating the cycle known as lunar phases.",
+      "retrievedAt": null,
+      "queries": null,
+      "provider": null,
+      "sources": []
+    },
+    {
+      "question": "Write a two-line poem about a sleepy cat.",
+      "expectedSearch": false,
+      "searchCalls": 0,
+      "localModelReceivedEvidence": false,
+      "routingPassed": true,
+      "plan": null,
+      "answer": "The golden sun dips low,\nThe feline naps so slow.",
+      "retrievedAt": null,
+      "queries": null,
+      "provider": null,
+      "sources": []
+    },
+    {
+      "question": "Calculate 25% of 120.",
+      "expectedSearch": false,
+      "searchCalls": 0,
+      "localModelReceivedEvidence": false,
+      "routingPassed": true,
+      "plan": null,
+      "answer": "30",
+      "retrievedAt": null,
+      "queries": null,
+      "provider": null,
+      "sources": []
+    }
+  ]
+}

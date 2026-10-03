@@ -1,0 +1,759 @@
+{
+  "testedAt": "2026-10-03T17:34:56.477Z",
+  "timeZone": "America/Chicago",
+  "runtime": "installed local Ollama and free live retrieval through existing local API",
+  "timingLimitations": "Single-machine snapshots, not a controlled benchmark. Baseline retrieval stage was not measured correctly; its total elapsed time remains valid. A Mac-sleep-interrupted intermediate run was excluded. First final question includes cold-model loading.",
+  "baseline": [
+    {
+      "question": "How much is a MacBook Air right now?",
+      "elapsedMs": 11634,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 8952
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "MacBook Air price",
+          "buy MacBook Air current price"
+        ],
+        "terms": [
+          "MacBook",
+          "Air",
+          "MacBook Air",
+          "price"
+        ],
+        "kind": "web"
+      },
+      "answer": "I searched live sources, but could not verify a current retailer price or active sale.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": false,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "retrievalIntent": null,
+      "fetchedAt": "2026-10-03T15:31:17.754Z",
+      "currentPrice": {
+        "status": "unverified",
+        "checkedAt": "2026-10-03T15:31:17.754Z",
+        "facts": []
+      },
+      "sources": [
+        {
+          "title": "Best MacBook Air Deals for October 2026 - Save up to $150",
+          "url": "https://appleinsider.com/deals/best-macbook-air-deals",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Buy MacBook Air - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Buy 15-inch MacBook Air - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/15-inch",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Apple MacBook Air Laptops - Best Buy",
+          "url": "https://www.bestbuy.com/site/macbooks/macbook-air/pcmcat378600050008.c?id=pcmcat378600050008",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "What\u2019s the current price of AirPods Pro?",
+      "elapsedMs": 23860,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 1894
+        },
+        {
+          "stage": "answer",
+          "ms": 10387
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "AirPods Pro price",
+          "AirPods Pro current price"
+        ],
+        "terms": [
+          "AirPods",
+          "Pro",
+          "AirPods Pro",
+          "price"
+        ],
+        "kind": "web"
+      },
+      "answer": "The Apple AirPods Pro 3 Wireless Earbuds with Active Noise Cancellation are currently listed at $234 USD on pricehistory.app. This pricing information was verified live as of today, October 3rd, 2026.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "retrievalIntent": null,
+      "fetchedAt": "2026-10-03T15:31:22.319Z",
+      "currentPrice": {
+        "status": "verified-live",
+        "checkedAt": "2026-10-03T15:31:22.319Z",
+        "facts": [
+          {
+            "name": "Apple AirPods Pro 3 Wireless Earbuds with Active Noise Cancellation",
+            "price": "234",
+            "currency": "USD",
+            "saleVerified": false,
+            "url": "https://pricehistory.app/p/apple-airpods-pro-3-wireless-earbuds-active-iuclKIyp",
+            "seller": "pricehistory.app"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Apple AirPods Pro 3 Wireless Earbuds with Active Noise Cancellation",
+          "url": "https://pricehistory.app/p/apple-airpods-pro-3-wireless-earbuds-active-iuclKIyp",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": "retrieved",
+          "pageKind": "merchant",
+          "pageFetchedAt": "2026-10-03T15:31:23.880Z"
+        }
+      ]
+    },
+    {
+      "question": "Is Amazon having any major sales this month?",
+      "elapsedMs": 16308,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 8980
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Amazon major sales October 2026",
+          "Amazon Black Friday deals 2026 timeline"
+        ],
+        "terms": [
+          "Amazon",
+          "Amazon sales",
+          "October 2026"
+        ],
+        "kind": "web"
+      },
+      "answer": "I searched live sources, but could not verify a current retailer price or active sale.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": false,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search",
+      "retrievalIntent": null,
+      "fetchedAt": "2026-10-03T15:31:53.274Z",
+      "currentPrice": {
+        "status": "unverified",
+        "checkedAt": "2026-10-03T15:31:53.274Z",
+        "facts": []
+      },
+      "sources": [
+        {
+          "title": "Black Friday Sale & Deals 2026's Amazon Page",
+          "url": "https://www.amazon.com/shop/blackfriday.finds",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Black Friday Sale & Deals 2026's Amazon Page",
+          "url": "https://www.amazon.com/shop/blackfriday",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Amazon 2026 Sales Calendar: The Complete Guide for Sellers and Shoppers ...",
+          "url": "https://amzmonitor.com/blogs/amazon-2026-sales-calendar-sellers-shoppers-guide",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Best fall sales in October 2026: Amazon, Target, Walmart, QVC",
+          "url": "https://www.usatoday.com/story/shopping/deals/retailers/2026/09/27/best-fall-sales-in-october-2026/91971572007/",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    }
+  ],
+  "final": [
+    {
+      "question": "How much is a MacBook Air right now?",
+      "elapsedMs": 11975,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 7439
+        },
+        {
+          "stage": "retrieval",
+          "ms": 2254
+        },
+        {
+          "stage": "answer",
+          "ms": 2269
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "MacBook Air price",
+          "buy MacBook Air official store price"
+        ],
+        "terms": [
+          "MacBook",
+          "Air",
+          "MacBook Air",
+          "price"
+        ],
+        "intent": "product-price",
+        "kind": "web"
+      },
+      "answer": "The starting price for a standard MacBook Air from Apple is $1,299 USD, while the 15-inch model starts at $1,499 USD.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "retrievalIntent": "product-price",
+      "fetchedAt": "2026-10-03T17:34:05.713Z",
+      "currentPrice": {
+        "status": "verified-live",
+        "checkedAt": "2026-10-03T17:34:05.713Z",
+        "facts": [
+          {
+            "name": "MacBook Air",
+            "price": "1299",
+            "currency": "USD",
+            "priceKind": "starting-at",
+            "saleVerified": false,
+            "url": "https://www.apple.com/shop/buy-mac/macbook-air",
+            "seller": "www.apple.com"
+          },
+          {
+            "name": "15-inch MacBook Air",
+            "price": "1499",
+            "currency": "USD",
+            "priceKind": "starting-at",
+            "saleVerified": false,
+            "url": "https://www.apple.com/shop/buy-mac/macbook-air/15-inch",
+            "seller": "www.apple.com"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Buy MacBook Air - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air",
+          "publishedDay": null,
+          "pageTitle": "Buy MacBook Air - Apple",
+          "articleStatus": "retrieved",
+          "pageKind": "merchant",
+          "pageFetchedAt": "2026-10-03T17:34:06.742Z"
+        },
+        {
+          "title": "Buy 15-inch MacBook Air - Apple",
+          "url": "https://www.apple.com/shop/buy-mac/macbook-air/15-inch",
+          "publishedDay": null,
+          "pageTitle": "Buy 15-inch MacBook Air - Apple",
+          "articleStatus": "retrieved",
+          "pageKind": "merchant",
+          "pageFetchedAt": "2026-10-03T17:34:06.748Z"
+        }
+      ]
+    },
+    {
+      "question": "What\u2019s the current price of AirPods Pro?",
+      "elapsedMs": 5064,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 2230
+        },
+        {
+          "stage": "retrieval",
+          "ms": 1410
+        },
+        {
+          "stage": "answer",
+          "ms": 1416
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "AirPods Pro current price",
+          "AirPods Pro official store buy price"
+        ],
+        "terms": [
+          "AirPods",
+          "Pro",
+          "AirPods Pro",
+          "current price"
+        ],
+        "intent": "product-price",
+        "kind": "web"
+      },
+      "answer": "You can buy the AirPods Pro 3 from Apple for $249 USD.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "retrievalIntent": "product-price",
+      "fetchedAt": "2026-10-03T17:34:12.442Z",
+      "currentPrice": {
+        "status": "verified-live",
+        "checkedAt": "2026-10-03T17:34:12.442Z",
+        "facts": [
+          {
+            "name": "AirPods Pro 3",
+            "price": "249",
+            "currency": "USD",
+            "saleVerified": false,
+            "url": "https://www.apple.com/shop/buy-airpods/airpods-pro-3",
+            "seller": "www.apple.com"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Buy AirPods Pro 3 - Apple",
+          "url": "https://www.apple.com/shop/buy-airpods/airpods-pro-3",
+          "publishedDay": null,
+          "pageTitle": "Buy AirPods Pro 3 - Apple",
+          "articleStatus": "retrieved",
+          "pageKind": "merchant",
+          "pageFetchedAt": "2026-10-03T17:34:13.240Z"
+        }
+      ]
+    },
+    {
+      "question": "Is Amazon having any major sales this month?",
+      "elapsedMs": 7958,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 2449
+        },
+        {
+          "stage": "retrieval",
+          "ms": 1906
+        },
+        {
+          "stage": "answer",
+          "ms": 3596
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Amazon major sales October 2026 dates",
+          "Amazon official sale announcement October 2026"
+        ],
+        "terms": [
+          "Amazon",
+          "major sales",
+          "October 2026"
+        ],
+        "intent": "sale-event",
+        "kind": "web"
+      },
+      "answer": "Yes, Amazon is hosting Prime Big Deal Days from October 6 to 7, 2026. This event features exclusive deals across more than 35 categories for Prime members starting at 12:01 a.m. PDT on October 6.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "retrievalIntent": "sale-event",
+      "fetchedAt": "2026-10-03T17:34:17.726Z",
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Prime Big Deal Days 2026 is set for October 6-7, 2026 - About Amazon",
+          "url": "https://www.aboutamazon.com/news/retail/amazon-prime-big-deals-day-2026-when-october-6-7",
+          "publishedDay": null,
+          "pageTitle": "Prime Big Deal Days 2026 is set for October 6-7, 2026",
+          "articleStatus": "retrieved",
+          "pageKind": "editorial",
+          "pageFetchedAt": "2026-10-03T17:34:18.461Z"
+        }
+      ]
+    },
+    {
+      "question": "What is the weather in Tulsa right now?",
+      "elapsedMs": 6956,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 1848
+        },
+        {
+          "stage": "retrieval",
+          "ms": 1253
+        },
+        {
+          "stage": "answer",
+          "ms": 2370
+        },
+        {
+          "stage": "answer",
+          "ms": 1481
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "current weather in Tulsa Oklahoma"
+        ],
+        "terms": [
+          "Tulsa",
+          "current weather"
+        ],
+        "intent": "other",
+        "kind": "weather"
+      },
+      "answer": "It's currently 70.4\u00b0F in Tulsa, feeling like 73.7\u00b0F.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "Open-Meteo (free noncommercial weather)",
+      "retrievalIntent": null,
+      "fetchedAt": "2026-10-03T17:34:25.081Z",
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Tulsa, Oklahoma, United States current weather model",
+          "url": "https://api.open-meteo.com/v1/forecast?latitude=36.15398&longitude=-95.99277&current=temperature_2m%2Capparent_temperature%2Crelative_humidity_2m%2Cwind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timeformat=unixtime&timezone=UTC&forecast_days=1",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "When is Amazon having its Prime deal sales this October?",
+      "elapsedMs": 8484,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 2514
+        },
+        {
+          "stage": "retrieval",
+          "ms": 2302
+        },
+        {
+          "stage": "answer",
+          "ms": 3666
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Amazon Prime Day October 2026 dates",
+          "Amazon Prime sale event October 2026 official announcement"
+        ],
+        "terms": [
+          "Amazon",
+          "Prime",
+          "Prime Day",
+          "October 2026"
+        ],
+        "intent": "sale-event",
+        "kind": "web"
+      },
+      "answer": "Amazon's Prime Big Deal Days event is scheduled for October 6\u20137, 2026. Deals begin at 12:01 a.m. PDT on the first day and continue through the second day with new drops occurring three times daily.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "retrievalIntent": "sale-event",
+      "fetchedAt": "2026-10-03T17:34:32.705Z",
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Prime Big Deal Days 2026 is set for October 6-7, 2026 - About Amazon",
+          "url": "https://www.aboutamazon.com/news/retail/amazon-prime-big-deals-day-2026-when-october-6-7",
+          "publishedDay": null,
+          "pageTitle": "Prime Big Deal Days 2026 is set for October 6-7, 2026",
+          "articleStatus": "retrieved",
+          "pageKind": "editorial",
+          "pageFetchedAt": "2026-10-03T17:34:33.740Z"
+        }
+      ]
+    },
+    {
+      "question": "What happened in Tulsa, OK today?",
+      "elapsedMs": 8736,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 2940
+        },
+        {
+          "stage": "retrieval",
+          "ms": 1798
+        },
+        {
+          "stage": "answer",
+          "ms": 3995
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Tulsa OK news today October 3",
+          "breaking news Tulsa Oklahoma"
+        ],
+        "terms": [
+          "Tulsa",
+          "Oklahoma",
+          "today"
+        ],
+        "intent": "other",
+        "kind": "news"
+      },
+      "answer": "Today in Tulsa, a man tragically died after being struck head-on by a wrong-way driver, while local newspapers also published obituaries for residents passing away on October 3. Additionally, news outlets are reporting on the fall weather forecast for the upcoming weekend.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "Google News RSS",
+      "retrievalIntent": "other",
+      "fetchedAt": "2026-10-03T17:34:41.620Z",
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Fall weather for the weekend",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9SamYzblJ2SXRTNVlzc0JtR0FxNVRMd0V1ZnpKSHdBeXJJSURzYWtMUW0yOVNzM1Y1RkVscEctSGVYZ3d1RXZ1UTdOb0J3UGVzVmxXT2tCYVRIUHZrM0tJbzRyQnI?oc=5",
+          "publishedDay": "2026-10-03",
+          "pageTitle": "Google News",
+          "articleStatus": "unavailable",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T17:34:42.307Z"
+        },
+        {
+          "title": "OHP: Man dies after being hit head-on by wrong-way driver",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNT0NFeFVTbDZkRVdGbUNmS3VyTjM1SnNhcWMycThtTWl4ekVER1lYMThadGhrcE8tWk9qX0dzWnJiWUFHOVFkbldwVUlIUlYwSFFrX2hfQU5JUDN3bTF6WFVEaHAtdWtTNDAyT3MxVVI3WDlYbmhGRWh4cG9rX0hhN0hydzl3MzlOMGVhQVBhMA?oc=5",
+          "publishedDay": "2026-10-03",
+          "pageTitle": "Google News",
+          "articleStatus": "unavailable",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T17:34:42.308Z"
+        },
+        {
+          "title": "Tulsa neighbors: Obituaries for October 3",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQX1M5Wlk3LWRjakg2dWppMkVodWpnOEh3NFZRZk5ISU9XQWtXZVBNTExhSXRqYW5XdkFVUTNqUElDN2IxZXZKYkk3YXo0SFpFazRzdk5VUTFEdy11SURXV3p2aDZBNTVPOTBBUi1uQ3plQWNVZDVNOG5wR2t0dUpKdDRsdjhiWWFFNHhWRnNoVQ?oc=5",
+          "publishedDay": "2026-10-03",
+          "pageTitle": "Google News",
+          "articleStatus": "unavailable",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T17:34:42.309Z"
+        },
+        {
+          "title": "Brittany's Bridge brings families of unsolved murder victims together in Tulsa",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOTGJ1bzcybWVwTmZ2STBxdUEtUm1YYUxERWJfOWZQU0hKQUxyZ1MzYnRHWkN0Y2VqeElKUWdRSFJ4d2FhUjJwT0hvY2x4N0x1TUQ4cFpjODZLVnJTdGZTRFhmOVNkZ3ExdUhpdjBJVFc1RWI2TXU4ZzFFSlZGdHV3SkppNlpBa3QxX19zelBRak1xUDlhVVUtM2o4Zmh2cE1zTnBPQk5xOGRGNTBwRUpN?oc=5",
+          "publishedDay": "2026-10-03",
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "Are Sony WH-1000XM6 headphones on sale now?",
+      "elapsedMs": 6557,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 3090
+        },
+        {
+          "stage": "retrieval",
+          "ms": 3465
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Sony WH-1000XM6 headphones price",
+          "Sony WH-1000XM6 official store buy price"
+        ],
+        "terms": [
+          "Sony",
+          "Sony WH-1000XM6",
+          "headphones",
+          "sale price"
+        ],
+        "intent": "product-price",
+        "kind": "web"
+      },
+      "answer": "I searched live sources, but could not verify a current retailer price or active sale.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": false,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search",
+      "retrievalIntent": "product-price",
+      "fetchedAt": "2026-10-03T17:34:50.508Z",
+      "currentPrice": {
+        "status": "unverified",
+        "checkedAt": "2026-10-03T17:34:50.508Z",
+        "facts": []
+      },
+      "sources": [
+        {
+          "title": "Sony WH-1000XM6-SILVER Wireless Noise Cancelling Headphones ... - Amazon",
+          "url": "https://www.amazon.com/Sony-WH-1000XM6-SILVER-Cancelling-Headphones-Protection/dp/B0GKHQ89RJ",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Amazon.com: Sony WH-1000XM6 The Best Noise Cancelling Wireless ...",
+          "url": "https://www.amazon.com/dp/B0F3PT1VBL",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        },
+        {
+          "title": "Sony WH-1000XM6 Headphones - ShopSavvy",
+          "url": "https://shopsavvy.com/products/sony-wh-1000xm6-headphones",
+          "publishedDay": null,
+          "pageTitle": null,
+          "articleStatus": null,
+          "pageKind": null,
+          "pageFetchedAt": null
+        }
+      ]
+    },
+    {
+      "question": "Is Target running any big sale events this month?",
+      "elapsedMs": 11494,
+      "timings": [
+        {
+          "stage": "retrieval-plan",
+          "ms": 2502
+        },
+        {
+          "stage": "retrieval",
+          "ms": 3486
+        },
+        {
+          "stage": "answer",
+          "ms": 5504
+        }
+      ],
+      "plan": {
+        "retrieve": true,
+        "queries": [
+          "Target sale events October 2026",
+          "Target official sale announcement October 2026"
+        ],
+        "terms": [
+          "Target",
+          "October 2026",
+          "sale events"
+        ],
+        "intent": "sale-event",
+        "kind": "web"
+      },
+      "answer": "Yes, Target is running a big sale event this month called Target Circle Deal Days from October 6 to 7. This two-day sale offers up to 40% off thousands of items across categories like fashion, beauty, and tech for members.",
+      "liveSearchCalls": 1,
+      "localModelReceivedEvidence": true,
+      "retryable": false,
+      "error": null,
+      "provider": "DuckDuckGo web search + Bing web search + Bing web-search RSS fallback",
+      "retrievalIntent": "sale-event",
+      "fetchedAt": "2026-10-03T17:34:56.477Z",
+      "currentPrice": null,
+      "sources": [
+        {
+          "title": "Target Circle Deal Days 2026 dates, early deals, how to shop",
+          "url": "https://www.usatoday.com/story/shopping/deals/retailers/target/2026/09/15/target-circle-deal-days-october-2026/91774728007/",
+          "publishedDay": null,
+          "pageTitle": "Target Circle Deal Days 2026 dates, early deals, how to shop",
+          "articleStatus": "retrieved",
+          "pageKind": "editorial",
+          "pageFetchedAt": "2026-10-03T17:34:57.171Z"
+        },
+        {
+          "title": "Target Circle\u2122 Deal Days",
+          "url": "https://www.target.com/l/target-circle-deal-days/-/N-7196o",
+          "publishedDay": null,
+          "pageTitle": "Target Circle\u2122 Deal Days",
+          "articleStatus": "retrieved",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T17:34:57.172Z"
+        },
+        {
+          "title": "Target North Spokane Store, Spokane, WA",
+          "url": "https://www.target.com/sl/north-spokane/636",
+          "publishedDay": null,
+          "pageTitle": "Target North Spokane Store, Spokane, WA",
+          "articleStatus": "retrieved",
+          "pageKind": "other",
+          "pageFetchedAt": "2026-10-03T17:34:57.173Z"
+        },
+        {
+          "title": "Target Circle Deal Days Returns This October: Everything We Know",
+          "url": "https://www.today.com/shop/target-circle-deal-days-october-2026-dates-announcement-rcna597891",
+          "publishedDay": null,
+          "pageTitle": "Target Circle Deal Days Returns This October: Everything We KnowToday LogoSearchSearchNBC News LogoNBC News LogoToday Logo",
+          "articleStatus": "retrieved",
+          "pageKind": "editorial",
+          "pageFetchedAt": "2026-10-03T17:34:57.174Z"
+        }
+      ]
+    }
+  ]
+}

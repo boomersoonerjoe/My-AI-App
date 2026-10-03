@@ -1,5 +1,6 @@
 import XCTest
 import Combine
+import FoundationModels
 @testable import PocketAI
 
 final class PersistenceTests: XCTestCase {
@@ -93,6 +94,57 @@ final class TestEngine: ChatEngine {
 }
 
 final class GenerationTests: XCTestCase {
+    #if targetEnvironment(simulator)
+    @MainActor
+    func testSimulatorRejectsUnsupportedMLXBeforeLoadingFiles() async throws {
+        do {
+            _ = try await MLXChatEngine.load(model: ModelCatalog.models[0],
+                directory: URL(fileURLWithPath: "/nonexistent-simulator-test-model"))
+            XCTFail("MLX inference cannot run on an iOS simulator.")
+        } catch ChatError.unavailable(let detail) {
+            XCTAssertTrue(detail.contains("physical iPhone"))
+            XCTAssertTrue(detail.contains("Apple on-device"))
+        }
+    }
+    #endif
+
+    @MainActor
+    func testRealAppleChatStreamsFollowsContextAndPersists() async throws {
+        // Exercise the production engine without canned replies or a downloaded-model fallback.
+        let engine = AppleChatEngine()
+        guard engine.availability.isReady else {
+            throw XCTSkip("Real Apple model unavailable: \(SystemLanguageModel.default.availability)")
+        }
+        let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: folder) }
+        let repository = LocalRepository(url: folder.appendingPathComponent("state.json"))
+        let store = AppStore(repository: repository, engine: engine)
+        let id = try XCTUnwrap(store.newConversation())
+        var receivedText = false
+        let streaming = store.$streamedReply.sink { if !$0.isEmpty { receivedText = true } }
+        defer { streaming.cancel(); store.stopReply() }
+
+        for prompt in ["My pet is a turtle named Maple. Reply with its name and species.",
+                       "What is my pet's name? Answer briefly."] {
+            let finished = expectation(description: "Real local reply saved")
+            let completion = store.$activeConversation.dropFirst().filter { $0 == nil }
+                .prefix(1).sink { _ in finished.fulfill() }
+            XCTAssertTrue(store.send(prompt, in: id))
+            await fulfillment(of: [finished], timeout: 120)
+            completion.cancel()
+            XCTAssertNil(store.replyNotice, store.replyNotice ?? "")
+            XCTAssertNil(store.unsavedReply)
+            let reply = try XCTUnwrap(store.data.conversations.first?.messages.last)
+            XCTAssertEqual(reply.role, .assistant)
+            XCTAssertTrue(reply.text.localizedCaseInsensitiveContains("Maple"), reply.text)
+            print("REAL_LOCAL_CHAT_REPLY: \(reply.text)")
+        }
+        XCTAssertTrue(receivedText, "The real engine must stream response text.")
+        XCTAssertEqual(store.data.conversations.first?.messages.map(\.role), [.user, .assistant, .user, .assistant])
+        let reopened = AppStore(repository: repository, engine: AppleChatEngine())
+        XCTAssertEqual(reopened.data, store.data)
+    }
+
     @MainActor
     func testCancelledReplyIsNotSavedAsCompleted() async throws {
         let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)

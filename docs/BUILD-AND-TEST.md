@@ -11,7 +11,7 @@ Joe has an older MacBook Air from his mother, but its exact model/year and macOS
 ## Open and compile
 1. Unzip this archive and open `PocketAI.xcodeproj` in Xcode.
 2. Select the `PocketAI` scheme and an available iOS simulator. Build with Product > Build.
-3. Run tests with Product > Test. These use test engines/transports and do not require model weights or an inference account. Xcode must first resolve the package dependencies using internet access.
+3. Run tests with Product > Test. Most tests use test engines/transports. The real Apple-model integration test runs when the system model is available and otherwise reports a skip; it needs no downloaded MLX weights or inference account. Xcode must first resolve the package dependencies using internet access.
 4. For device installation, select the app target's Signing & Capabilities, choose your own development team/account, and replace `com.example.PocketAI` with a unique bundle identifier. Do not paste credentials into project source.
 5. Select the attached or paired iPhone, follow Xcode's device setup instructions, and run. Apple may require Developer Mode and device trust. Signing and any account requirements must be resolved in Xcode; no install has been performed from this workspace.
 
@@ -54,8 +54,17 @@ Regeneration resets local project edits, including signing changes; do it before
 - A failed response save retains the response in memory until saved or discarded. It cannot survive app termination unless saving succeeds.
 - Image generation requires a later compatible model, engine integration, and on-device acceptance test.
 
-## Tests included but not executed here
-Seventeen XCTest cases cover state round-trip, old message decoding, unsupported schema rejection, corrupted file preservation, failed save rollback, bounded context, oversized prompt handling, Unicode boundaries, cancellation/concurrent-generation prevention, and recovery of an unsaved generated response. The new cases cover manifest paths, pinned download URLs, SHA/Git-blob integrity, successful model install/delete, cancellation cleanup/retry, and rejecting bad downloaded bytes.
+## Simulator validation (September 30, 2026)
+The generic iOS Simulator build succeeded, and all 17 XCTest cases passed on the iPhone 18 Pro simulator with iOS 27.0. These cover state round-trip, old message decoding, unsupported schema rejection, corrupted file preservation, failed save rollback, bounded context, oversized prompt handling, Unicode boundaries, cancellation/concurrent-generation prevention, recovery of an unsaved generated response, manifest paths, pinned download URLs, SHA/Git-blob integrity, successful model install/delete, cancellation cleanup/retry, and rejecting bad downloaded bytes.
+
+The pinned MLXLLM, MLXLMCommon, MLXHuggingFace, and Tokenizers package products resolved successfully. Debug now uses `ONLY_ACTIVE_ARCH = YES`, matching SwiftPM's selected simulator architecture. Previously, a concrete simulator test build attempted to link the app's x86_64 slice against arm64 package objects and failed with undefined symbols. The project generator preserves this fix. Package versions remain unchanged. Signing and on-device model inference still require device validation.
+
+V1 runtime validation later that evening passed all 19 tests, including a production `AppleChatEngine` test with real local inference. It streamed “Maple, turtle.” and answered the follow-up “Maple.”, then verified both turns survived reopening the store. No mock response or cloud fallback was used for that test. Chat controls now stay disabled while an engine is loading. MLX loading rejects the unsupported simulator before touching model files; downloadable-model inference still requires a physical iPhone.
+
+### Manual V1 chat acceptance — PASS (owner-reported)
+The owner manually verified Pocket AI on the iPhone 18 Pro simulator: the app launched, a new conversation received a local AI response, and a message asking it to remember `7429` was followed by a recall question that correctly returned `7429`. This completes the manual on-screen launch/send/follow-up chat gate. Device Hub automation timed out, but that does not invalidate the owner's successful manual test. This proves recent conversation context; it does not establish saved Memory-note recall or persistence across app termination.
+
+Remaining V1 acceptance work: install/sign on the target physical iPhone; verify offline Apple chat, conversation and Memory-note persistence/recall across relaunch, Stop/retry/background behavior, keyboard/accessibility layouts, and practical latency/memory/thermal behavior. Validate the existing downloadable MLX model lifecycle and offline inference on a physical iPhone. Voice, image generation, and cloud connections remain outside the current V1 work.
 
 ## Primary implementation references
 - https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel
@@ -65,7 +74,7 @@ Seventeen XCTest cases cover state round-trip, old message decoding, unsupported
 - https://github.com/ml-explore/mlx-swift-lm
 - https://github.com/drawthingsai/media-generation-kit
 
-The Apple documentation Markdown pages were retrieved directly to verify the current API. The generated source still requires Xcode type validation and runtime tests.
+The Apple documentation Markdown pages were retrieved directly to verify the current API. Simulator compilation and the recorded runtime tests have passed; physical-device acceptance remains pending.
 
 ## Downloadable-model acceptance gate
 - Settings > Chat model offers Qwen3 0.6B 4-bit (351,384,491 bytes) and Qwen3 1.7B 4-bit (984,014,117 bytes), plus the Apple system model. These are starter candidates, not verified phone capacity claims.

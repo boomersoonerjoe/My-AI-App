@@ -133,14 +133,12 @@ struct ChatDetail: View {
                     if succeeded { draft = "" }
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !store.storageAvailable
-                          || store.activeConversation != nil || store.unsavedReply != nil)
+                .disabled(draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !store.canSwitchEngine)
             }.padding()
         }.navigationTitle(conversation?.title ?? "Conversation").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("Save only") { if store.saveMessage(draft, in: id) { draft = "" } }
-                    .disabled(draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !store.storageAvailable
-                              || store.activeConversation != nil || store.unsavedReply != nil)
+                    .disabled(draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !store.canSwitchEngine)
             }
     }
 }
